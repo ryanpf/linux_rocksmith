@@ -221,6 +221,8 @@ Open qpwgraph or a different JACK patchbay software of your choice. We want to c
 
 ### Get the start script
 
+> **!! The following description is for Proton 8 and below. !!**
+
 In Steam, right click on Rocksmith and choose "Properties". Set the following launch options:
 
 ```
@@ -235,7 +237,7 @@ Let's copy the script to somewhere else and give it a better name. This is an ex
 cp /tmp/proton_$USER/run $STEAMLIBRARY/steamapps/common/rocksmith-launcher.sh
 ```
 
-!! If you switch Proton versions, regenerate this script !!
+> **!! If you switch Proton versions, regenerate this script !!**
 
 We can start the game via this script now: `PIPEWIRE_LATENCY="256/48000" $STEAMLIBRARY/steamapps/common/rocksmith-launcher.sh`
 
