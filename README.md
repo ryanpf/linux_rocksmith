@@ -63,11 +63,15 @@ Then there's the way of routing the audio through JACK -> wineASIO -> RS_ASIO, w
 
 ## Scripts
 
+These are outated. I'll leave the content here just in case.
+
+<details>
 Because someone asked, I have written scripts that do everything for you.
 
 For native Steam: `wget https://raw.githubusercontent.com/theNizo/linux_rocksmith/main/scripts/native-steam.sh && ./native-steam.sh && rm native-steam.sh`
 
 For other Rocksmith installations: `wget https://raw.githubusercontent.com/theNizo/linux_rocksmith/main/scripts/other.sh && ./other.sh && rm other.sh`
+</details>
 
 # Credits
 
