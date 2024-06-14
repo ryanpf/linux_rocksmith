@@ -33,6 +33,11 @@ Log out and back in. Or reboot, if that doesn't work.
 
 # Create a clean prefix
 
+Set the Proton version you want to use. There's two ways to do this. In steam
+
+* go to `Settings` 🡲 `Compatibility` 🡲 `Enable Steam play for all other titles`, then restart Steam.
+* open your library, right click Rocksmith and go to`Properties` 🡲 `Compatibility` and force one.
+
 Delete or rename `$STEAMLIBRARY/steamapps/compatdata/221680`, then start Rocksmith and stop the game once it's running.
 
 The rest will be set up later.
@@ -75,11 +80,7 @@ env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
 1. [Download](https://github.com/mdias/rs_asio/releases) the newest release, unpack everything to the root of your Rocksmith installation (`$STEAMLIBRARY/steamapps/common/Rocksmith2014/`)
 1. Edit RS_ASIO.ini: fill in `wineasio-rsasio` where it says `Driver=`. Do this for every Output and Input section.
 
-Inputs are already assigned to channels. You can bind up to 3 inputs (mono) to Rocksmith.
-
-![](/img/rs-asio.png)
-
-The names displayed ingame have nothing to do with the actual type of hardware you're using.
+And you're done with RS_ASIO. But in case you want to configure the inputs further, see [this](/guides/setup-rs-asio.md).
 
 ## Set up JACK
 
@@ -143,7 +144,7 @@ With recent Proton versions can't start Rocksmith directly from the Steam Librar
 
 </details>
 
-Go into your Steam Library and select "Add a game" -> "Add a Non-Steam Game" on the bottom left.
+Go into your Steam Library and select "Add a game" 🡲 "Add a Non-Steam Game" on the bottom left.
 
 Make sure you can see all files. Select the script we generated just now and add it. This will create a shortcut to the script, which I will refer to as "shortcut" from here on. For Proton versions 8 or lower, right click on the shortcut and select "Properties". Add these launch Options: `PIPEWIRE_LATENCY="256/48000" %command%`
 

@@ -1,4 +1,8 @@
+(This is the original version, with very minor tweaks.)
+
 # JACK to ASIO with pipewire on NixOS
+
+Thanks to [TimP4w](https://github.com/TimP4w) for writing this.
 
 ## Table of contents
 
@@ -79,11 +83,11 @@ After applying the configuration, reboot your PC.
 
 ```
 
-## Explanation
+### Explanation
 We of course want mainly two things: audio and steam. 
 These are pretty much self-explanatory, but there are some more settings that we need:
 
-### Audio
+#### Audio
 We use pipewire (`services.pipewire`) and pipewire-jack. The goal is to connect jack to wine via wineasio.
 
 I noticed that for audio we need some extra things:
@@ -93,7 +97,7 @@ I noticed that for audio we need some extra things:
 - `qjackctl` to control our audio pipeline (there are also other alternatives here, such as `helvum` or `qpwgraph`)
 
 
-### Steam
+#### Steam
 Here we only want to add two things:
 - Wineasio, to connect JACK with wine
 - The 32-bit libraries of pipewire JACK since Rocksmith is a 32-bit game.
@@ -110,7 +114,7 @@ You must apply the configuration and rebuild your system _BEFORE_ continuing.
 
 ## 1. Enable Steam Play for Windows Games
 
-Open Steam and activate Proton (`Settings` > `Compatibility` > `Enable Steam play for all other titles`).
+Open Steam and activate Proton (`Settings` 🡲 `Compatibility` 🡲 `Enable Steam play for all other titles`).
 
 Restart steam.
 
