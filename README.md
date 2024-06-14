@@ -79,6 +79,6 @@ For other Rocksmith installations: `wget https://raw.githubusercontent.com/theNi
 * [the_Nizo](https://github.com/theNizo), for using that information and updating it regularly in the past. My original Guide was posted [here](https://old.reddit.com/r/linux_gaming/comments/jmediu/guide_for_setup_rocksmith_2014_steam_no_rs_cable/gdhg4zx/).
 * [BWagener](https://github.com/BWagener) for writing the Steam Deck Guide.
 * [Siarkowy](https://github.com/Siarkowy) for replacing the "JustInCaseWeNeedIt" workaround and the shortcut in Steam.
-* [zurgeg](https://github.com/zurgeg) for the NixOS guide.
+* [TimP4w](https://github.com/TimP4w) for the NixOS guide.
 
 Thank you all for the work ^^
