@@ -1,5 +1,10 @@
 ## Create a clean prefix
 
+Set the Proton version you want to use. There's two ways to do this. In steam
+
+* go to `Settings` 🡲 `Compatibility` 🡲 `Enable Steam play for all other titles`, then restart Steam.
+* open your library, right click Rocksmith and go to`Properties` 🡲 `Compatibility` and force one.
+
 Delete or rename `$STEAMLIBRARY/steamapps/compatdata/221680`, then start Rocksmith and stop the game once it's running.
 
 The rest will be set up later.
