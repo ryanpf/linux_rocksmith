@@ -7,7 +7,7 @@
 ## Table of contents
 
 1. [Install necessary stuff](#install-necessary-stuff)
-1. [Create a clean prefix](#create-a-cean-prefix)
+1. [Create a clean prefix](#create-a-clean-prefix)
 1. [wineasio](#wineasio)
 1. [Installing RS_ASIO](#installing-rs_asio)
 1. [Set up JACK](#set-up-jack)
@@ -48,7 +48,7 @@ Log out and back in. Or reboot, if that doesn't work.
 
 # Create a clean prefix
 
-Set the Proton version you want to use. There's two ways to do this. In steam
+Set the Proton version you want to use. There's two ways to do this. In Steam
 
 * go to `Settings` 🡲 `Compatibility` 🡲 `Enable Steam play for all other titles`, then restart Steam.
 * open your library, right click Rocksmith and go to`Properties` 🡲 `Compatibility` and force one.
