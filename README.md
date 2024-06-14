@@ -29,11 +29,9 @@ I will refer to them with variables. You can actually set them as variables via 
 * `$HOME`: Already set, don't worry about it. (redirects to `/home/<username>`)
 * `$STEAMLIBRARY`: The Steam Library, where Rocksmith is installed in. You can check it by opening Steam, then going to `Steam -> Settings -> Storage`. Above the disk usage indicator, there's a path. that's the one we need.
 * `$PROTON`: A specific location inside your Proton installation
-	* Normal Proton: `/path/to/steamapps/common/Proton\ #.##/dist`
-	* Proton-GE: It's located in the default Steam Library under `compatibilitytools.d/Proton-#.##-GE-#/files`
-	* Lutris Runners: No specific location, just `$HOME/.local/share/lutris/runners/wine/wine-ge-8-25-x86_64`
-
-> **Please use Proton 8 or below. Because of changes in Proton 9, one step has to be done differently and I will update the guide once I understand how to.**
+	* Valve Release: `/path/to/steamapps/common/Proton\ #.##/dist`
+	* Other Proton (GE, Valve Experimental/Beta, etc.): It's located in the default Steam Library under `compatibilitytools.d/Proton-#.##-GE-#/files`
+	* Lutris Runners: No specific location, just `$HOME/.local/share/lutris/runners/wine/wine-<version>`
 
 # Guides
 
@@ -49,7 +47,7 @@ Then there's the way of routing the audio through JACK -> wineASIO -> RS_ASIO, w
 | Debian | [Not finished](guides/setup/deb-pipewire.md) | [Guide](guides/setup/deb-non-pipewire.md) |
 | Fedora | [Guide](guides/setup/fed-pipewire.md) | N/A |
 | Steam Deck | [Guide](guides/setup/deck-pipewire.md) | N/A |
-| NixOS | [Guide](guides/setup/nixos-pipewire.md) | N/A |
+| NixOS | [Guide](guides/setup/nixos-pipewire.md) | missing |
 
 **Other Guides:**
 
