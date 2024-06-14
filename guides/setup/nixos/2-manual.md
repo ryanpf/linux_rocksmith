@@ -9,13 +9,13 @@ Manual
 1. [Method 1 - Manual](#table-of-contents) 🡰 You are here
 	1. [Create a clean prefix](create-a-clean-prefix)
 	1. [wineasio](#wineasio)
-	1. [Installing RS_ASIO](#installing-rs-asio)
+	1. [Installing RS_ASIO](#installing-rs_asio)
 	1. [Reboot](#reboot-your-pc)
-1. [Method 2 - script](guides/setup/nixos/2-script.md)
-1. [Set up JACK](guides/setup/nixos/3.md)
-1. [Starting the game](guides/setup/nixos/3.md#starting-the-game)
-1. [Known Issues](guides/setup/nixos/3.md#known-issues)
-1. [Troubleshooting](guides/setup/nixos/3.md#a-bit-of-troubleshooting)
+1. [Method 2 - script](/guides/setup/nixos/2-script.md)
+1. [Set up JACK](/guides/setup/nixos/3.md)
+1. [Starting the game](/guides/setup/nixos/3.md#starting-the-game)
+1. [Known Issues](/guides/setup/nixos/3.md#known-issues)
+1. [Troubleshooting](/guides/setup/nixos/3.md#a-bit-of-troubleshooting)
 
 ## Method 1: Manual
 
@@ -79,7 +79,7 @@ cd "$PROTONPATH/bin"
 1. [Download](https://github.com/mdias/rs_asio/releases) the newest release, unpack everything to the root of your Rocksmith installation (`$STEAMLIBRARY/steamapps/common/Rocksmith2014/`)
 1. Edit RS_ASIO.ini: fill in `wineasio-rsasio` where it says `Driver=`. Do this for every Output and Input section.
 
-## 5. Reboot your PC
+## Reboot your PC
 Simply reboot your PC.
 
 [Continue here](/guides/nixos/3.md)
