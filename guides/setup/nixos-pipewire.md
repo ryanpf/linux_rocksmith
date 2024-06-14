@@ -120,7 +120,7 @@ Simply install it from steam and **launch it once**, until you need to choose yo
 
 <details><summary> How to check if this worked correctly</summary>
 
-> You can check if everything worked correctly if the directory `/home/.steam/steam/steamapps/compatdata/221680/pfx` exists and has some files inside.
+> You can check if everything worked correctly if the directory `/home/$(whoami)/.steam/steam/steamapps/compatdata/221680/pfx` exists and has some files inside.
 </details>
 
 
