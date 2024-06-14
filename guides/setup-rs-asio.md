@@ -1,5 +1,7 @@
 # Configuring RS_ASIO
 
+(Please note that there is much more detail (including reports for certain audio interfaces) on the [RS_ASIO repo](https://github.com/mdias/rs_asio))
+
 ![](/img/rs-asio.png)
 
 Set every driver to `wineasio-rsasio` and you're done. This setup is ready for multiplayer.

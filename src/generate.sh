@@ -10,7 +10,7 @@ trap "exit" INT
 path=../guides/setup
 
 echo -1
-rm $path/* # clean first
+rm $path/*.md # clean first
 # for every variation
 for dist in arch deb deck fed; do
 	for sound in non-pipewire pipewire; do
