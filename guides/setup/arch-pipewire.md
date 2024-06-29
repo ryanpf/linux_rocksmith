@@ -205,10 +205,10 @@ Open qpwgraph or a different JACK patchbay software of your choice. We want to c
 
 ### Get the start script
 
-Please select the Proton Version you use:
+Please select the Proton Version you use (Rocksmith has been working fine since Proton 8 btw):
 
-* [Proton 9 or higher](/guides/start-script/proton-8.md)
-* [Proton 8 or lower](/guides/start-script/proton-9.md)
+* [Proton 9 or higher](/guides/start-script/proton-9.md) (newer versions)
+* [Proton 8 or lower](/guides/start-script/proton-8.md) (slightly easier)
 
 We can start the game via this script now: `PIPEWIRE_LATENCY="256/48000" $STEAMLIBRARY/steamapps/common/rocksmith-launcher.sh`
 

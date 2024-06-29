@@ -29,7 +29,7 @@ echo '#!/bin/bash' >> rocksmith-launcher.sh
 echo '' >> rocksmith-launcher.sh
 echo 'cd "$STEAMLIBRARY//steamapps/common/Rocksmith2014/"' >> rocksmith-launcher.sh
 echo 'PIPEWIRE_LATENCY="256/48000" \' >> rocksmith-launcher.sh
-grep -iP "steamenv|steamappid|steam_compat_client_install_path|compat_data_path|SteamOverlayGameId" vars | tr '\n' ' \\n' >> rocksmith-launcher.sh
+grep -iP "SteamOverlayGameId|SteamGameId|SteamEnv|SteamClientLaunch|STEAM_COMPAT_APP_ID|STEAM_COMPAT_DATA_PATH|STEAM_COMPAT_MEDIA_PATH|STEAM_COMPAT_SHADER_PATH|STEAM_COMPAT_INSTALL_PATH|STEAM_COMPAT_CLIENT_INSTALL_PATH" vars | tr '\n' ' \\n' >> rocksmith-launcher.sh
 cat launch >> rocksmith-launcher.sh
 chmod +x rocksmith-launcher.sh
 ```
@@ -39,7 +39,7 @@ chmod +x rocksmith-launcher.sh
 If you really want to, you can change the regex to your liking.
 
 Minimum: `SteamAppId|STEAM_COMPAT_CLIENT_INSTALL_PATH|STEAM_COMPAT_DATA_PATH`
-Recommened: SteamOverlayGameId|SteamGameId|SteamEnv|SteamClientLaunch|STEAM_COMPAT_APP_ID|STEAM_COMPAT_DATA_PATH|STEAM_COMPAT_MEDIA_PATH|STEAM_COMPAT_SHADER_PATH|STEAM_COMPAT_INSTALL_PATH|STEAM_COMPAT_CLIENT_INSTALL_PATH
+Recommened: `steamenv|steamappid|steam_compat_client_install_path|compat_data_path|SteamOverlayGameId`
 
 Theoretically, you could even remove SteamAppId, but then the savegame location changes and you can't use the Steam cloud for your saves. Here's what some flags do:
 
