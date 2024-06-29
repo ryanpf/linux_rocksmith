@@ -29,7 +29,7 @@ echo '#!/bin/bash' >> rocksmith-launcher.sh
 echo '' >> rocksmith-launcher.sh
 echo cd "$STEAMLIBRARY//steamapps/common/Rocksmith2014/" >> rocksmith-launcher.sh
 echo 'PIPEWIRE_LATENCY="256/48000" \' >> rocksmith-launcher.sh
-grep -iP "SteamOverlayGameId|SteamGameId|SteamEnv|SteamClientLaunch|STEAM_COMPAT_APP_ID|STEAM_COMPAT_DATA_PATH|STEAM_COMPAT_MEDIA_PATH|STEAM_COMPAT_SHADER_PATH|STEAM_COMPAT_INSTALL_PATH|STEAM_COMPAT_CLIENT_INSTALL_PATH" vars | tr '\n' ' \\n' >> rocksmith-launcher.sh
+grep -iP "steamappid|SteamOverlayGameId|SteamGameId|SteamEnv|SteamClientLaunch|STEAM_COMPAT_APP_ID|STEAM_COMPAT_DATA_PATH|STEAM_COMPAT_MEDIA_PATH|STEAM_COMPAT_SHADER_PATH|STEAM_COMPAT_INSTALL_PATH|STEAM_COMPAT_CLIENT_INSTALL_PATH" vars | tr '\n' ' \\n' >> rocksmith-launcher.sh
 sed -e 's/container-runtime /container-runtime "/g' -e 's/ waitforexitandrun /" waitforexitandrun "/g' -e 's/ -uplay_steam/" -uplay_steam/g' launch >> rocksmith-launcher.sh
 chmod +x rocksmith-launcher.sh
 ```
