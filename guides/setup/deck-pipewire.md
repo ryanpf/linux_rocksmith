@@ -100,7 +100,7 @@ sudo pacman -S lib32-jack2 jack2
 
 The official source for wineasio is [wineasio/wineasio](https://github.com/wineasio/wineasio). If the official one doesn't work, clone the fixed version from here: https://github.com/BWagener/wineasio.git
 
-[Download](https://github.com/wineasio/wineasio/releases) the newest zip and unpack it. Open a terminal inside the newly created folder and run the following commands:
+[Download](https://github.com/wineasio/wineasio/releases) the newest .tar.gz and unpack it. Open a terminal inside the newly created folder and run the following commands:
 
 <details><summary>[How to] Clone instead of downloading:</summary>
 

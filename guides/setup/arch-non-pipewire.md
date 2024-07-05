@@ -81,7 +81,7 @@ There are two ways to install wineasio:
 
 <details><summary>Compile from source</summary>
 
-[Download](https://github.com/wineasio/wineasio/releases) the newest zip and unpack it. Open a terminal inside the newly created folder and run the following commands:
+[Download](https://github.com/wineasio/wineasio/releases) the newest .tar.gz and unpack it. Open a terminal inside the newly created folder and run the following commands:
 
 <details><summary>[How to] Clone instead of downloading:</summary>
 
