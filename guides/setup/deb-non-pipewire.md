@@ -1,6 +1,6 @@
 # JACK to ASIO on Debian-based distros
 
-Last tested on Debian Sid.
+Last tested on Debian Bookworm.
 
 ## Table of contents
 
