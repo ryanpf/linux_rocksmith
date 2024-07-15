@@ -33,7 +33,7 @@ Log out and back in. Or reboot, if that doesn't work.
 
 <details><summary> How to check if this worked correctly</summary>
 
-For the packages, you can do `apt list --installed package-name` (You can do multiple packages at once) Should output the names and versions without errors.
+> For the packages, you can do `apt list --installed package-name` (You can do multiple packages at once) Should output the names and versions without errors.
 >
 > For the groups, run `groups`. This will give you a list, which should contain "audio" and "realtime".
 </details>
@@ -77,6 +77,7 @@ env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx wineasio-register
 >
 > Extract it somewhere and run a command like this (replace the last path with the correct path that you chose):
 >
+> ```
 > WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx $PROTON/bin/wine /path/to/VBASIOTest32.exe
 > ```
 > !! The command above currently might not work. You can try instead: `LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so wine /path/to/VBASIOTest32.exe` !!
@@ -97,6 +98,8 @@ What we basically need to do is to select only one output and just as much input
 Open pavucontrol ("PulseAudio Volume Control"), go to "Configuration" and make sure the amount of enabled input devices matches the amount of inputs you want for Rocksmith.
 
 All available devices will automatically be tied to Rocksmith, and the game doesn't like you messing around in the patchbay (= it's possible, but would crash often).
+
+(You technically don't need to do this step, it's just more reliable.)
 
 # Starting the game
 
@@ -226,7 +229,6 @@ This is a handy debugging tool (that I've also [used in the past](https://github
 
 You can get verbose output of wineasio by using `/usr/bin/pw-jack -v -s 48000 -p 256 %command%`. -v stands for "verbose" and will give you additional information in the terminal.
 
-## CDLC
+## DLC
 
-* Make sure your game is patched for it. Since it's now an .exe, add that to your Steam Library and run it with Proton.
 * In the past, we had to set the working directory to the root of the game's folder. This would either be done in the script, in the properties of the shortcut, or in the terminal via `cd`.
