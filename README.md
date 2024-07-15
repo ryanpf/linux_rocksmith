@@ -33,6 +33,14 @@ I will refer to them with variables. You can actually set them as variables via 
 	* Other Proton (GE, Valve Experimental/Beta, etc.): It's located in the default Steam Library under `compatibilitytools.d/Proton-#.##-GE-#/files`
 	* Lutris Runners: No specific location, just `$HOME/.local/share/lutris/runners/wine/wine-<version>`
 
+Example for default paths and Proton 8:
+
+```
+STEAMLIBRARY=$HOME/.steam/steam/
+PROTON=$HOME/.steam/steam/steamapps/common/Proton 8.0/dist/
+
+```
+
 # Guides
 
 There are two ways to do this. The one most people on [ProtonDB](https://www.protondb.com/app/221680) use is quicker, but results in high delay and distorted sound. It routes the sound through ALSA. This can be found in "Other Guides".

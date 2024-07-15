@@ -34,7 +34,7 @@
 
 <details><summary>[How to] Clone instead of downloading:</summary>
 
-> (No support for this way, as release package is easier to replicate.)
+> (No support for this way, as a release package is easier to replicate.)
 >
 > ```
 > git clone --recursive https://github.com/wineasio/wineasio.git
