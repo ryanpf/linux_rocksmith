@@ -69,7 +69,7 @@ In theory, this should also work with Lutris runners (located in `$HOME/.local/s
 To register wineasio (so that it can be used in the prefix), run the `wineasio-register` script that comes in the wineasio zip and set the `WINEPREFIX` to Rocksmiths.
 
 ```
-
+env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx wineasio-register
 ```
 
 <details><summary> How to check if this worked correctly</summary>

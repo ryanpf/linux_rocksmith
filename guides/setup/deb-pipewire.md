@@ -19,6 +19,7 @@ Last tested on Debian Sid.
 Install the kxstudio repo according to these instructions: https://kx.studio/Repositories
 
 ```
+dpkg --add-architecture i386
 sudo apt update
 sudo apt install wine pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack qpwgraph realtime-privileges pavucontrol wineasio
 # the groups should already exist, but just in case
@@ -67,7 +68,7 @@ In theory, this should also work with Lutris runners (located in `$HOME/.local/s
 To register wineasio (so that it can be used in the prefix), run the `wineasio-register` script that comes in the wineasio zip and set the `WINEPREFIX` to Rocksmiths.
 
 ```
-
+env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx wineasio-register
 ```
 
 <details><summary> How to check if this worked correctly</summary>
