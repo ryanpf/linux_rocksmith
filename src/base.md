@@ -61,7 +61,7 @@ In theory, this should also work with Lutris runners (located in `$HOME/.local/s
 To register wineasio (so that it can be used in the prefix), run the `wineasio-register` script that comes in the wineasio zip and set the `WINEPREFIX` to Rocksmiths.
 
 ```
-env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
+000-wineasio-register-000
 ```
 
 <details><summary> How to check if this worked correctly</summary>
@@ -69,9 +69,10 @@ env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
 > Download this: [VBAsioTest_1013.zip](https://download.vb-audio.com/Download_MT128/VBAsioTest_1013.zip)
 >
 > Extract it somewhere and run a command like this (replace the last path with the correct path that you chose):
-> ```
+>
 > WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx $PROTON/bin/wine /path/to/VBASIOTest32.exe
 > ```
+> !! The command above currently might not work. You can try instead: `LD_PRELOAD=000-libjack-path-000/libjack.so wine /path/to/VBASIOTest32.exe` !!
 >
 </details>
 
@@ -101,7 +102,7 @@ If we start the game from the button that says "Play" in Steam, the game can't c
 
 Add these launch options to Rocksmith:
 ```
-LD_PRELOAD=/usr/lib32/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
+LD_PRELOAD=000-libjack-path-000/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
 ```
 
 You can launch the game from Steam now. For the first few boot-ups, you have to remove window focus from Rocksmith (typically done with Alt+Tab) as soon as the window shows up. If it doesn't crash, continue with instructions.

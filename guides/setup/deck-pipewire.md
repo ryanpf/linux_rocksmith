@@ -41,7 +41,7 @@ Log out and back in. Or reboot, if that doesn't work.
 
 <details><summary> How to check if this worked correctly</summary>
 
-> For the packages, do `pacman -Q package-name`. (You can do multiple at once) Should output the names and versions without errors.
+> For the packages, do `pacman -Q package-name`. (You can do multiple packages at once) Should output the names and versions without errors.
 >
 > For the groups, run `groups`. This will give you a list, which should contain "audio" and "realtime".
 </details>
@@ -104,7 +104,7 @@ The official source for wineasio is [wineasio/wineasio](https://github.com/winea
 
 <details><summary>[How to] Clone instead of downloading:</summary>
 
-> (No support for this way, as release package is easier to replicate.)
+> (No support for this way, as a release package is easier to replicate.)
 >
 > ```
 > git clone --recursive https://github.com/wineasio/wineasio.git
@@ -166,9 +166,10 @@ env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
 > Download this: [VBAsioTest_1013.zip](https://download.vb-audio.com/Download_MT128/VBAsioTest_1013.zip)
 >
 > Extract it somewhere and run a command like this (replace the last path with the correct path that you chose):
-> ```
+>
 > WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx $PROTON/bin/wine /path/to/VBASIOTest32.exe
 > ```
+> !! The command above currently might not work. You can try instead: `LD_PRELOAD=/usr/lib32/libjack.so wine /path/to/VBASIOTest32.exe` !!
 >
 </details>
 

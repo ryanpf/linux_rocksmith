@@ -13,7 +13,7 @@ base.md
             line-before-download
             fed-makefile
             arch-non-pipewire-after-wineasio-installation
-    install wienasio-runner
+    wineasio-register
         old
     jack-setup
     steam-running-required

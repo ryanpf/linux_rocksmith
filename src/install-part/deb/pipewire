@@ -1,4 +1,5 @@
-[missing, sorry]
+Install the kxstudio repo according to these instructions: https://kx.studio/Repositories
 
 ```
-[missing, sorry]
+sudo apt update
+sudo apt install wine pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack qpwgraph realtime-privileges pavucontrol wineasio

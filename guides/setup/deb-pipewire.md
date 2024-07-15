@@ -1,6 +1,6 @@
 # JACK to ASIO with pipewire on Debian-based distros
 
-I don't have a debian-based machine to test this. Everything up to starting the game was tested in a VM.
+Last tested on Debian Sid.
 
 ## Table of contents
 
@@ -16,10 +16,11 @@ I don't have a debian-based machine to test this. Everything up to starting the 
 
 (I recommend `wine-staging` if your distro has it, but usual `wine` works as well.)
 
-[missing, sorry]
+Install the kxstudio repo according to these instructions: https://kx.studio/Repositories
 
 ```
-[missing, sorry]
+sudo apt update
+sudo apt install wine pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack qpwgraph realtime-privileges pavucontrol wineasio
 # the groups should already exist, but just in case
 sudo groupadd audio
 sudo groupadd realtime
@@ -31,7 +32,7 @@ Log out and back in. Or reboot, if that doesn't work.
 
 <details><summary> How to check if this worked correctly</summary>
 
-
+For the packages, you can do `apt list --installed package-name` (You can do multiple packages at once) Should output the names and versions without errors.
 >
 > For the groups, run `groups`. This will give you a list, which should contain "audio" and "realtime".
 </details>
@@ -66,7 +67,7 @@ In theory, this should also work with Lutris runners (located in `$HOME/.local/s
 To register wineasio (so that it can be used in the prefix), run the `wineasio-register` script that comes in the wineasio zip and set the `WINEPREFIX` to Rocksmiths.
 
 ```
-env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
+
 ```
 
 <details><summary> How to check if this worked correctly</summary>
@@ -74,9 +75,10 @@ env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
 > Download this: [VBAsioTest_1013.zip](https://download.vb-audio.com/Download_MT128/VBAsioTest_1013.zip)
 >
 > Extract it somewhere and run a command like this (replace the last path with the correct path that you chose):
-> ```
+>
 > WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx $PROTON/bin/wine /path/to/VBASIOTest32.exe
 > ```
+> !! The command above currently might not work. You can try instead: `LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so wine /path/to/VBASIOTest32.exe` !!
 >
 </details>
 
@@ -110,7 +112,7 @@ If we start the game from the button that says "Play" in Steam, the game can't c
 
 Add these launch options to Rocksmith:
 ```
-LD_PRELOAD=/usr/lib32/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
+LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
 ```
 
 You can launch the game from Steam now. For the first few boot-ups, you have to remove window focus from Rocksmith (typically done with Alt+Tab) as soon as the window shows up. If it doesn't crash, continue with instructions.
