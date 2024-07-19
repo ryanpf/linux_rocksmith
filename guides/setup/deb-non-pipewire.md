@@ -26,8 +26,8 @@ sudo apt install cadence carla wineasio jackd2
 # the groups should already exist, but just in case
 sudo groupadd audio
 sudo groupadd realtime
-sudo usermod -aG audio $USER`
-sudo usermod -aG realtime $USER`
+sudo usermod -aG audio $USER
+sudo usermod -aG realtime $USER
 ```
 
 Log out and back in. Or reboot, if that doesn't work.

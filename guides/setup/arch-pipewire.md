@@ -21,8 +21,8 @@ sudo pacman -S wine-staging pipewire-alsa pipewire-pulse pipewire-jack lib32-pip
 # the groups should already exist, but just in case
 sudo groupadd audio
 sudo groupadd realtime
-sudo usermod -aG audio $USER`
-sudo usermod -aG realtime $USER`
+sudo usermod -aG audio $USER
+sudo usermod -aG realtime $USER
 ```
 
 Log out and back in. Or reboot, if that doesn't work.
@@ -179,6 +179,8 @@ Steam needs to be running.
 If we start the game from the button that says "Play" in Steam, the game can't connect to wineasio (you won't have sound and will get an error message). This is an issue with Steam and pipewire-jack. There are two ways to go about this. You can apply both at the same time, they don't break each other.
 
 <details><summary>1. LD_PRELOAD</summary>
+
+!! It seems like this currently doesn't work on Arch. Please use the start script instead !!
 
 * Advantages: Run from Steam directly
 * Disadvantages: higher possibility of crashes, steps you might need to do every game-boot.

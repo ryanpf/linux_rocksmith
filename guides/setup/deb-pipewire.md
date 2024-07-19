@@ -21,12 +21,12 @@ Install the kxstudio repo according to these instructions: https://kx.studio/Rep
 ```
 dpkg --add-architecture i386
 sudo apt update
-sudo apt install wine pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack qpwgraph realtime-privileges pavucontrol wineasio
+sudo apt install wine pipewire-alsa pipewire-pulse pipewire-jack pipewire-jack:i386 qpwgraph pavucontrol wineasio
 # the groups should already exist, but just in case
 sudo groupadd audio
 sudo groupadd realtime
-sudo usermod -aG audio $USER`
-sudo usermod -aG realtime $USER`
+sudo usermod -aG audio $USER
+sudo usermod -aG realtime $USER
 ```
 
 Log out and back in. Or reboot, if that doesn't work.
@@ -118,6 +118,18 @@ Add these launch options to Rocksmith:
 ```
 LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
 ```
+
+<details><summary>In case you're using pipewire 1.2</summary>
+
+This is currently a Debian-specific problem that currently only affects testing versions. If pipewire 1.2 gets pushed to stable and the problem persists, please tell me by opening an issue.
+
+Please download [this package](https://snapshot.debian.org/archive/debian/20240416T025914Z/pool/main/p/pipewire/pipewire-jack_1.0.5-1_i386.deb) (an older version of pipewire-jack) and extract libjack.so from `data.tar.gz/./usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so`. Preload that file instead.
+
+Instructions are from [#48](https://github.com/theNizo/linux_rocksmith/issues/48).
+
+You can otherwise create the start script and then run `LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so ./rocksmith-launcher.sh`.
+
+</details>
 
 You can launch the game from Steam now. For the first few boot-ups, you have to remove window focus from Rocksmith (typically done with Alt+Tab) as soon as the window shows up. If it doesn't crash, continue with instructions.
 

@@ -21,8 +21,8 @@ sudo pacman -S cadence carla jack2 lib32-jack2 realtime-privileges
 # the groups should already exist, but just in case
 sudo groupadd audio
 sudo groupadd realtime
-sudo usermod -aG audio $USER`
-sudo usermod -aG realtime $USER`
+sudo usermod -aG audio $USER
+sudo usermod -aG realtime $USER
 ```
 
 Log out and back in. Or reboot, if that doesn't work.
