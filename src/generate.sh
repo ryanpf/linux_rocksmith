@@ -54,9 +54,9 @@ for dist in arch deb deck fed; do
 		sed -i "s/000-base-devel-000/cat install-wineasio-system\/stuff\/base-devel\/${dist}/e" $filename
 		if [ "$dist" = "arch" ] && [ "$sound" = "non-pipewire" ]; then
 			sed -i "s/000-line-before-download-000/cat install-wineasio-system\/stuff\/line-before-download\/arch-non-pipewire/e" $filename
-			sed -i "s/000-arch-non-pipewire-after-wineasio-install-000/cat install-wineasio-system\/stuff\/arch-non-pipewire-after-wineasio-install/e" $filename
+			sed -i "s/000-after-wineasio-install-000/cat install-wineasio-system\/stuff\/after-wineasio-install\/arch-non-pipewire/e" $filename
 		elif [ "$dist" = "deck" ]; then
-			sed -i "s/000-line-before-download-000/cat install-wineasio-system\/stuff\/line-before-download\/deck/e" $filename
+			sed -i "s/000-after-wineasio-install-000/cat install-wineasio-system\/stuff\/after-wineasio-install\/deck/e" $filename
 		fi
 		sed -i "s/000-line-before-download-000//g" $filename
 		sed -i 's/000-arch-non-pipewire-after-wineasio-install-000//g' $filename

@@ -2,7 +2,7 @@
 
 <details><summary>Know already what's going on? Here are all commands in one piece without an explanation</summary>
 
-> If the commands in this collapsible section don't work for you, try the "longer" variant first before asking for help.
+> **If the commands in this collapsible section don't work for you, try the "longer" variant first before asking for help.**
 >
 > YOU NEED TO HAVE THE $PROTON AND $STEAMLIBRARY VARIABLE SET!! (or replaced with the correct path first)
 >
@@ -60,7 +60,7 @@ sudo cp build64/wineasio64.dll 000-x64windows-000/wineasio64.dll
 sudo cp build64/wineasio64.dll.so 000-x64unix-000/wineasio64.dll.so
 ```
 
-000-arch-non-pipewire-after-wineasio-install-000
+000-after-wineasio-install-000
 
 `wineasio` is now installed on your system.
 
