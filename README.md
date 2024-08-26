@@ -22,16 +22,15 @@ We will need wine, which is installed in the first step.
 
 ## Common paths
 
-I will refer to them with variables. You can actually set them as variables via `variablename=value` and just copy-paste the commands, or replace the text. Keep in mind that these are temporary, so only available in the terminal instance where the variable was defined.
-
-`#.##` will be a placeholder for the Proton version you use. So for "Proton #.##", an example replacement would be "Proton 7.0".
+I will refer to them with variables. You use them by running `variablename=value` (this will only apply to the terminal window you ran it in) and just copy-paste the commands, or replace the variables yourself whenever they come up in a command.
 
 * `$HOME`: Already set, don't worry about it. (redirects to `/home/<username>`)
 * `$STEAMLIBRARY`: The Steam Library, where Rocksmith is installed in. You can check it by opening Steam, then going to `Steam -> Settings -> Storage`. Above the disk usage indicator, there's a path. that's the one we need.
 * `$PROTON`: A specific location inside your Proton installation
-	* Valve Release: `/path/to/steamapps/common/Proton\ #.##/dist`
-	* Other Proton (GE, Valve Experimental/Beta, etc.): It's located in the default Steam Library under `compatibilitytools.d/Proton-#.##-GE-#/files`
-	* Lutris Runners: No specific location, just `$HOME/.local/share/lutris/runners/wine/wine-<version>`
+	* Valve Release: (Example with Proton 7) `/path/to/steamapps/common/Proton\ 7.0/dist`
+	* Valve Beta/Experimental: (Example with Experimental) `/path/to/steamapps/common/Proton\ -\ Experimental/files`
+	* Custom Proton: (Example with GE-Proton 9.11) `$HOME/.steam/steam/compatibilitytools.d/GE-Proton9-11/files`
+	* Lutris Runners: (Example with lutris-7.2-2) No specific location, just `$HOME/.local/share/lutris/runners/wine/lutris-7.2-2-x86_64`
 
 Example for default paths and Proton 8:
 
