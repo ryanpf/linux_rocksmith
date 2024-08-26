@@ -59,7 +59,7 @@ for dist in arch deb deck fed; do
 			sed -i "s/000-after-wineasio-install-000/cat install-wineasio-system\/stuff\/after-wineasio-install\/deck/e" $filename
 		fi
 		sed -i "s/000-line-before-download-000//g" $filename
-		sed -i 's/000-arch-non-pipewire-after-wineasio-install-000//g' $filename
+		sed -i 's/000-after-wineasio-install-000//g' $filename
 		sed -i "s/000-deck-additional-packages-000/cat install-wineasio-system\/stuff\/deck-additional-packages\/${dist}/e" $filename
 		sed -i "s/000-fed-makefile-000/cat install-wineasio-system\/stuff\/fed-makefile\/${dist}/e" $filename
 		sed -i "s/000-wineasio-register-000/cat wineasio-register\/${dist}/e" $filename

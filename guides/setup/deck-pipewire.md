@@ -64,15 +64,13 @@ Installing `base-devel` is very useful for using the AUR and compiling in genera
 On SteamOS the following additional packages were required to compile wineasio:
 
 ```
-sudo pacman -S base-devel glibc linux-headers linux-api-headers libtool binutils lib32-glibc
-# note about these two packages: they are in conflict with lib32-pipewire-jack pipewire-jack
-# pacman can remove these packages for you and we can reinstall them once wineasio is compiled
-sudo pacman -S lib32-jack2 jack2
+# We temporarlily install jack2 so that we can compile wineasio. We'll reinstall pipewire-jack afterwards.
+sudo pacman -S base-devel glibc linux-headers linux-api-headers libtool binutils lib32-glibc lib32-jack2 jack2
 ```
 
 <details><summary>Know already what's going on? Here are all commands in one piece without an explanation</summary>
 
-> If the commands in this collapsible section don't work for you, try the "longer" variant first before asking for help.
+> **If the commands in this collapsible section don't work for you, try the "longer" variant first before asking for help.**
 >
 > YOU NEED TO HAVE THE $PROTON AND $STEAMLIBRARY VARIABLE SET!! (or replaced with the correct path first)
 >
@@ -98,7 +96,7 @@ sudo pacman -S lib32-jack2 jack2
 >
 </details>
 
-The official source for wineasio is [wineasio/wineasio](https://github.com/wineasio/wineasio). If the official one doesn't work, clone the fixed version from here: https://github.com/BWagener/wineasio.git
+
 
 [Download](https://github.com/wineasio/wineasio/releases) the newest .tar.gz and unpack it. Open a terminal inside the newly created folder and run the following commands:
 
@@ -130,7 +128,7 @@ sudo cp build64/wineasio64.dll /usr/lib/wine/x86_64-windows/wineasio64.dll
 sudo cp build64/wineasio64.dll.so /usr/lib/wine/x86_64-unix/wineasio64.dll.so
 ```
 
-
+Please reinstall `pipewire-jack lib32-pipewire-jack` again.
 
 `wineasio` is now installed on your system.
 
@@ -147,10 +145,10 @@ To make Proton use wineasio, we need to copy these files into the appropriate lo
 
 ```
 # !!! WATCH OUT FOR VARIABLES !!!
-cp /usr/lib32/wine/i386-unix/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio.dll.so"
-cp /usr/lib/wine/x86_64-unix/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio.dll.so"
-cp /usr/lib32/wine/i386-windows/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio.dll"
-cp /usr/lib/wine/x86_64-windows/wineasio64.dll "$PROTON/lib64/wine/x86_64-windows/wineasio.dll"
+cp /usr/lib32/wine/i386-unix/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio32.dll.so"
+cp /usr/lib/wine/x86_64-unix/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio64.dll.so"
+cp /usr/lib32/wine/i386-windows/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio32.dll"
+cp /usr/lib/wine/x86_64-windows/wineasio64.dll "$PROTON/lib64/wine/x86_64-windows/wineasio64.dll"
 ```
 
 In theory, this should also work with Lutris runners (located in `$HOME/.local/share/lutris/runners/wine/`)
