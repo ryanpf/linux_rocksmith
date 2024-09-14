@@ -44,7 +44,7 @@ Recommened: `steamenv|steamappid|steam_compat_client_install_path|compat_data_pa
 Theoretically, you could even remove SteamAppId, but then the savegame location changes and you can't use the Steam cloud for your saves. Here's what some flags do:
 
 | Name | Function |
-| === | === |
+| --- | --- |
 | SteamAppId | Gives Steam information, which game is running |
 | SteamOverlayGameId | Sets the Steam overlay to the correct game. |
 | SteamGameId | Steam integration |
