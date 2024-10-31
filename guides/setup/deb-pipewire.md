@@ -53,10 +53,13 @@ The rest will be set up later.
 
 
 
-To make Proton use wineasio, we need to copy these files into the appropriate locations:
+&nbsp;
+
+To make Proton use wineasio, we need to copy these files into the appropriate locations.
+
+**STOP!** If you haven't set the environment variables yet, please follow [this part](/README.md#common-paths) of the prerequisites, then continue.
 
 ```
-# !!! WATCH OUT FOR VARIABLES !!!
 cp /usr/lib/i386-linux-gnu/wine/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio32.dll.so"
 cp /usr/lib/x86_64-linux-gnu/wine/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio64.dll.so"
 cp /usr/lib/i386-linux-gnu/wine/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio32.dll"
@@ -103,6 +106,8 @@ All available devices will automatically be tied to Rocksmith, and the game does
 
 # Starting the game
 
+![](/img/3-start-button.png)
+
 Delete the `Rocksmith.ini` inside your Rocksmith installation. It will auto-generate with the correct values. The only important part is the `LatencyBuffer=`, which has to match the Buffer Periods.
 
 Steam needs to be running.
@@ -119,8 +124,6 @@ Add these launch options to Rocksmith:
 LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
 ```
 
-<details><summary>In case you're using pipewire 1.2</summary>
-
 > This is currently a Debian-specific problem that currently only affects testing versions. If pipewire 1.2 gets pushed to stable and the problem persists, please tell me by opening an issue.
 >
 > Please download [this package](https://snapshot.debian.org/archive/debian/20240416T025914Z/pool/main/p/pipewire/pipewire-jack_1.0.5-1_i386.deb) (an older version of pipewire-jack) and extract libjack.so from `data.tar.gz/./usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so`. Preload that file instead.
@@ -128,8 +131,6 @@ LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so PIPEWIRE_LATENCY
 > Instructions are from [#48](https://github.com/theNizo/linux_rocksmith/issues/48).
 >
 > You can otherwise create the start script and then run `LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so ./rocksmith-launcher.sh`.
-
-</details>
 
 You can launch the game from Steam now. For the first few boot-ups, you have to remove window focus from Rocksmith (typically done with Alt+Tab) as soon as the window shows up. If it doesn't crash, continue with instructions.
 

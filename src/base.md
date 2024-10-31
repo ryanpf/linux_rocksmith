@@ -46,10 +46,13 @@ The rest will be set up later.
 
 000-install-wineasio-system-000
 
-To make Proton use wineasio, we need to copy these files into the appropriate locations:
+&nbsp;
+
+To make Proton use wineasio, we need to copy these files into the appropriate locations.
+
+**STOP!** If you haven't set the environment variables yet, please follow [this part](/README.md#common-paths) of the prerequisites, then continue.
 
 ```
-# !!! WATCH OUT FOR VARIABLES !!!
 cp 000-x32unix-000/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio32.dll.so"
 cp 000-x64unix-000/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio64.dll.so"
 cp 000-x32windows-000/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio32.dll"
@@ -89,6 +92,8 @@ And you're done with RS_ASIO. But in case you want to configure the inputs furth
 000-jack-setup-000
 
 # Starting the game
+
+![](/img/3-start-button.png)
 
 Delete the `Rocksmith.ini` inside your Rocksmith installation. It will auto-generate with the correct values. The only important part is the `LatencyBuffer=`, which has to match the Buffer Periods.
 

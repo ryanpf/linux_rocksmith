@@ -66,8 +66,10 @@ sudo cp build64/wineasio64.dll.so 000-x64unix-000/wineasio64.dll.so
 
 <details><summary>How to check if it's installed correctly</summary>
 
-> 	find /usr/000-lib32-000/ -name "wineasio*"
-> 	find /usr/000-lib64-000/ -name "wineasio*"
+> ```
+> find /usr/000-lib32-000/ -name "wineasio*"
+> find /usr/000-lib64-000/ -name "wineasio*"
+> ```
 >
 > This should output 4 paths (ignore the errors).
 >

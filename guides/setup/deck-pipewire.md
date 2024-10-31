@@ -134,17 +134,22 @@ Please reinstall `pipewire-jack lib32-pipewire-jack` again.
 
 <details><summary>How to check if it's installed correctly</summary>
 
-> 	find /usr/lib32/ -name "wineasio*"
-> 	find /usr/lib/ -name "wineasio*"
+> ```
+> find /usr/lib32/ -name "wineasio*"
+> find /usr/lib/ -name "wineasio*"
+> ```
 >
 > This should output 4 paths (ignore the errors).
 >
 </details>
 
-To make Proton use wineasio, we need to copy these files into the appropriate locations:
+&nbsp;
+
+To make Proton use wineasio, we need to copy these files into the appropriate locations.
+
+**STOP!** If you haven't set the environment variables yet, please follow [this part](/README.md#common-paths) of the prerequisites, then continue.
 
 ```
-# !!! WATCH OUT FOR VARIABLES !!!
 cp /usr/lib32/wine/i386-unix/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio32.dll.so"
 cp /usr/lib/wine/x86_64-unix/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio64.dll.so"
 cp /usr/lib32/wine/i386-windows/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio32.dll"
@@ -190,6 +195,8 @@ All available devices will automatically be tied to Rocksmith, and the game does
 (You technically don't need to do this step, it's just more reliable.)
 
 # Starting the game
+
+![](/img/3-start-button.png)
 
 Delete the `Rocksmith.ini` inside your Rocksmith installation. It will auto-generate with the correct values. The only important part is the `LatencyBuffer=`, which has to match the Buffer Periods.
 
