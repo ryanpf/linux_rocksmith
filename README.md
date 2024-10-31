@@ -41,7 +41,12 @@ PROTON=$HOME/.steam/steam/steamapps/common/Proton 7.0/dist/
 
 <details><summary>How to set environment variables</summary>
 
+You can check the environment variables by running `echo $NAME`.
+
+I recommend putting double quotes around the paths, just to be sure.
+
 ```
+
 # Temporary:
 # Totally fine for our usecase. Copy these lines into a terminal, enter the paths and hit enter.
 # Keep in mind that these are only temporary. It only applies to the terminal instance you set it in.
