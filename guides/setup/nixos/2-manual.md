@@ -82,4 +82,4 @@ cd "$PROTONPATH/bin"
 ## Reboot your PC
 Simply reboot your PC.
 
-[Continue here](/guides/nixos/3.md)
+[Continue here](/guides/setup/nixos/3.md)

@@ -33,4 +33,4 @@ First it will ask you if you want to override its default values, you can press 
 
 Reboot your PC after the script finishes.
 
-[Continue here](/guides/nixos/3.md)
+[Continue here](/guides/setup/nixos/3.md)
