@@ -10,7 +10,7 @@ Last tested on Debian Bookworm.
 1. [Installing RS_ASIO](#installing-rs_asio)
 1. [Set up JACK](#set-up-jack)
 1. [Starting the game](#starting-the-game)
-1. [A bit of troubleshooting](#a-bit-of-troubleshooting)
+1. [Troubleshooting](/guides/troubleshooting.md)
 
 # Install necessary stuff
 

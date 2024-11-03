@@ -1,4 +1,4 @@
-# A bit of troubleshooting
+# Troubleshooting
 
 If some commands don't work, make sure you've set the environment variables as described [here](/README.md#common-paths)
 
