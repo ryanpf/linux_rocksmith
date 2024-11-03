@@ -22,10 +22,10 @@ We will need wine, which is installed in the first step.
 
 ### Common paths
 
-Some paths that we need difer from system to system. I use environment variables in this guide so you don't have to edit every second command you run. Here's what we need:
+Some paths that we need differ from system to system. I use environment variables in this guide so you don't have to edit every second command you run. Here's what we need:
 
 * **`$HOME`:** Already set, don't worry about it. (redirects to `/home/<username>`)
-* **`$STEAMLIBRARY`:** The Steam Library where Rocksmith is installed in. This is important if you installed the game on a different drive. You can check where it's installed by opening Steam, then going to `Steam -> Settings -> Storage`. Search for the disk where Rocksmith is installed on. The path you need will be Above the disk usage indicator, [picture for visual explanation](/img/storage.png). Most of the time this will be in `$HOME/.steam/steam/`
+* **`$STEAMLIBRARY`:** The Steam Library where Rocksmith is installed in. This is important if you installed the game on a different drive. You can check where it's installed by opening Steam, then going to `Steam -> Settings -> Storage`. Search for the disk where Rocksmith is installed on. The path you need will be Above the disk usage indicator, [picture for visual explanation](/img/storage.webp). Most of the time this will be in `$HOME/.steam/steam/`
 * **`$PROTON`:** A specific location inside your Proton installation.
 	* Valve Release: (Example with Proton 7) `/path/to/steamapps/common/Proton\ 7.0/dist`
 	* Valve Beta/Experimental: (Example with Experimental) `/path/to/steamapps/common/Proton\ -\ Experimental/files`
@@ -41,25 +41,27 @@ PROTON=$HOME/.steam/steam/steamapps/common/Proton 7.0/dist/
 
 <details><summary>How to set environment variables</summary>
 
-You can check the environment variables by running `echo $NAME`.
+> You can check the environment variables by running `echo $NAME`.
+>
+> I recommend putting double quotes around the paths, just to be sure.
 
-I recommend putting double quotes around the paths, just to be sure.
-
-```
-
-# Temporary:
-# Totally fine for our usecase. Copy these lines into a terminal, enter the paths and hit enter.
-# Keep in mind that these are only temporary. It only applies to the terminal instance you set it in.
-# If you were to open a new terminal window, you'd have to enter them again to be able to use them.
-STEAMLIBRARY=<path>
-PROTON=<path>
-
-# Permanent:
-# Add these lines to ~/.profile
-# You will need to log out and back in after adding them.
-export STEAMLIBRARY=<path>
-export PROTON=<path>
-```
+> #### Temporary:
+>
+> Totally fine for our usecase. Insert your paths and run these lines like commands. Keep in mind that these are only temporary. It only applies to the terminal instance you set it in. If you were to open a new terminal window, you'd have to enter them again to be able to use them.
+>
+> ```
+> STEAMLIBRARY=<path>
+> PROTON=<path>
+> ```
+>
+> #### Permanent:
+>
+> Add these lines to `~/.profile`. You will need to log out and back in after adding them.
+>
+> ```
+> export STEAMLIBRARY=<path>
+> export PROTON=<path>
+> ```
 
 </details>
 
@@ -80,6 +82,8 @@ Then there's the way of routing the audio through JACK -> wineASIO -> RS_ASIO, w
 | Steam Deck | [Guide](guides/setup/deck-pipewire.md) | N/A |
 | NixOS | [Guide](guides/setup/nixos/1.md) | missing |
 
+**[Troubleshooting](/guides/troubleshooting.md)**
+
 **Other Guides:**
 
 * [OBS guide for these setups](guides/obs.md)
@@ -96,11 +100,11 @@ Then there's the way of routing the audio through JACK -> wineASIO -> RS_ASIO, w
 These are outated. I'll leave the content here just in case.
 
 <details>
-Because someone asked, I have written scripts that do everything for you.
-
-For native Steam: `wget https://raw.githubusercontent.com/theNizo/linux_rocksmith/main/scripts/native-steam.sh && ./native-steam.sh && rm native-steam.sh`
-
-For other Rocksmith installations: `wget https://raw.githubusercontent.com/theNizo/linux_rocksmith/main/scripts/other.sh && ./other.sh && rm other.sh`
+> Because someone asked, I have written scripts that do everything for you.
+>
+> For native Steam: `wget https://raw.githubusercontent.com/theNizo/linux_rocksmith/main/scripts/native-steam.sh && ./native-steam.sh && rm native-steam.sh`
+>
+> For other Rocksmith installations: `wget https://raw.githubusercontent.com/theNizo/linux_rocksmith/main/scripts/other.sh && ./other.sh && rm other.sh`
 </details>
 
 ## Credits

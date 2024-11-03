@@ -113,7 +113,7 @@ And you're done with RS_ASIO. But in case you want to configure the inputs furth
 
 # Starting the game
 
-![](/img/3-start-button.png)
+![](/img/3-start-button.webp)
 
 Delete the `Rocksmith.ini` inside your Rocksmith installation. It will auto-generate with the correct values. The only important part is the `LatencyBuffer=`, which has to match the Buffer Periods.
 
@@ -157,7 +157,7 @@ Please select the Proton Version you use (Rocksmith has been working fine since 
 * [Proton 9 or higher](/guides/start-script/proton-9.md) (newer versions)
 * [Proton 8 or lower](/guides/start-script/proton-8.md) (slightly easier)
 
-We can start the game via this script now: `PIPEWIRE_LATENCY="256/48000" $STEAMLIBRARY/steamapps/common/rocksmith-launcher.sh`
+We can start the game via this script now: `PIPEWIRE_LATENCY="256/48000" path/to/rocksmith-launcher.sh`
 
 If you want the Steam overlay to work, you need to launch the script via Steam, see the next step.
 
@@ -208,9 +208,9 @@ You can take artwork from [Rocksmith](https://www.steamgriddb.com/game/1841), [R
 **Grid (cover art):** For this it gets a bit harder. Go to `$HOME/.steam/steam/userdata/<number>/config/grid`. Since we added a hero, there should be a file that resembles it, so find it with an image viewer. It's called `<id>_hero.<file-ending>` we need the ID.
 copy the cover art into this folder and name it `<id>p.<file-ending>`.
 
-This is how the file structure looks on my system:
+This is how the files look on my system:
 
-![](/img/grid-file.png)
+![](/img/grid-file.webp)
 
 Launch Big Picture Mode now and find the entry in your Library. It should now have artwork.
 
@@ -218,29 +218,6 @@ Launch Big Picture Mode now and find the entry in your Library. It should now ha
 
 </details>
 
-# A bit of troubleshooting
+# Troubleshooting
 
-If some commands don't work, make sure you've set the variables.
-
-## Game crashes
-
-Can happen sometimes when you use a different application, then focus Rocksmith again. Other than that:
-
-* First off, if the game crashes at the start, try two more times. Sometimes it was just random.
-* Keep Pavucontrol (or whatever you used) open while starting/playing - I can't really tell why, but it helps a lot
-* **Use onboard audio:** I use a seperate sound card (Shows up as "CM106") that creates issues. I don't have to unplug it, but just use the audio built into the mainboard. RealTone Cable works fine btw.
-* **Focus away:** If you use pipewire and the game crashes right after the window shows up, you could try taking the focus to another window as quick as possible. It helps sometimes, but isn't reliable
-* **Patch bay:** (Meaning: Changes with something like qpwgraph or Catia.) The game doesn't like these changes too much. You might get away with 1-2, but this is a bit luck-based.
-* **Disable Big Picture:** I think this was an issue for me at one point. I would do it just to be sure.
-* **Start from terminal:** This gives you more info on what's going on. Launch the script from the terminal or
-* **Try the old approach:** This is not meant to be used for playing anymore, but it's a reliable way to get the game running: `PIPEWIRE_LATENCY=256/48000 WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx $PROTON/bin/wine $STEAMLIBRARY/steamapps/common/Rocksmith2014/Rocksmith2014.exe`
-
-## WineASIO
-
-This is a handy debugging tool (that I've also [used in the past](https://github.com/theNizo/linux_rocksmith/issues/22#issuecomment-1276457128)): https://forum.vb-audio.com/viewtopic.php?t=1204
-
-You can get verbose output of wineasio by using `/usr/bin/pw-jack -v -s 48000 -p 256 %command%`. -v stands for "verbose" and will give you additional information in the terminal.
-
-## DLC
-
-* In the past, we had to set the working directory to the root of the game's folder. This would either be done in the script, in the properties of the shortcut, or in the terminal via `cd`.
+[Go to Troubleshooting](/guides/troubleshooting.md)

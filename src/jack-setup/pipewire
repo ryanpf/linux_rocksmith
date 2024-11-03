@@ -1,7 +1,7 @@
-What we basically need to do is to select only one output and just as much inputs as you need (1 input (eg. singleplayer) = 1 device; 2 inputs (eg. 2 Players) = 2 devices, etc.). I like to do this via `pavucontrol`, which works if `pipewire-pulse` is installed.
+I prefer to set up my audio devices with pavucontrol ("PulseAudio Volume Control"), which works if `pipewire-pulse` is installed.
 
-Open pavucontrol ("PulseAudio Volume Control"), go to "Configuration" and make sure the amount of enabled input devices matches the amount of inputs you want for Rocksmith.
+It's most reliable to NOT set your devices to Pro-Audio (under "Configuration") and leave pavucontrol open when starting the game.
 
-All available devices will automatically be tied to Rocksmith, and the game doesn't like you messing around in the patchbay (= it's possible, but would crash often).
+All available devices will automatically be tied to Rocksmith, and the game doesn't like you messing around in the patchbay (= it's possible, but would crash often). You default audio device will be taken first, then the others will be assigned. The order can most likely not be predicted.
 
-(You technically don't need to do this step, it's just more reliable.)
+If you want to make sure it does what you want, select only one output and just as much inputs as you need (1 input (eg. singleplayer) = 1 device; 2 inputs (eg. 2 Players) = 2 devices, etc.). I like to do this via `pavucontrol`, which works if `pipewire-pulse` is installed.
