@@ -1,5 +1,7 @@
 # JACK to ASIO with pipewire on Arch-based distros
 
+Tested on Arch Linux
+
 ## Table of contents
 
 1. [Install necessary stuff](#install-necessary-stuff)
@@ -47,6 +49,8 @@ The rest will be set up later.
 
 # wineasio
 
+## Install
+
 Installing `base-devel` is very useful for using the AUR and compiling in general.
 
 <details><summary>Know already what's going on? Here are all commands in one piece without an explanation</summary>
@@ -77,23 +81,7 @@ Installing `base-devel` is very useful for using the AUR and compiling in genera
 >
 </details>
 
-
-
 [Download](https://github.com/wineasio/wineasio/releases) the newest .tar.gz and unpack it. Open a terminal inside the newly created folder and run the following commands:
-
-<details><summary>[How to] Clone instead of downloading:</summary>
-
-> (No support for this way, as a release package is easier to replicate.)
->
-> ```
-> git clone --recursive https://github.com/wineasio/wineasio.git
-> cd wineasio
-> ```
->
-
-</details>
-
-
 
 ```
 # build
@@ -109,8 +97,6 @@ sudo cp build64/wineasio64.dll /usr/lib/wine/x86_64-windows/wineasio64.dll
 sudo cp build64/wineasio64.dll.so /usr/lib/wine/x86_64-unix/wineasio64.dll.so
 ```
 
-
-
 `wineasio` is now installed on your system.
 
 <details><summary>How to check if it's installed correctly</summary>
@@ -124,7 +110,7 @@ sudo cp build64/wineasio64.dll.so /usr/lib/wine/x86_64-unix/wineasio64.dll.so
 >
 </details>
 
-&nbsp;
+## Make use of
 
 To make Proton use wineasio, we need to copy these files into the appropriate locations.
 

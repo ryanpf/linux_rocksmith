@@ -74,7 +74,9 @@ Then there's the way of routing the audio through JACK -> wineASIO -> RS_ASIO, w
 
 **Recent Proton versions:**
 
-|| pipewire | non-pipewire |
+[Which guide should I choose?](/guides/which-guide-should-i-choose.md)
+
+|| pipewire-jack | native JACK |
 |---|---|---|
 | Arch | [Guide](guides/setup/arch-pipewire.md) | [Guide](guides/setup/arch-non-pipewire.md) |
 | Debian | [Guide](guides/setup/deb-pipewire.md) | [Guide](guides/setup/deb-non-pipewire.md) |
