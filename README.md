@@ -78,8 +78,8 @@ Then there's the way of routing the audio through JACK -> wineASIO -> RS_ASIO, w
 |---|---|---|
 | Arch | [Guide](guides/setup/arch-pipewire.md) | [Guide](guides/setup/arch-non-pipewire.md) |
 | Debian | [Guide](guides/setup/deb-pipewire.md) | [Guide](guides/setup/deb-non-pipewire.md) |
-| Fedora | [Guide](guides/setup/fed-pipewire.md) | N/A |
-| Steam Deck | [Guide](guides/setup/deck-pipewire.md) | N/A |
+| Fedora | [Guide](guides/setup/fed-pipewire.md) | postponed, see #40 |
+| Steam Deck | [Guide](guides/setup/deck-pipewire.md) | in development |
 | NixOS | [Guide](guides/setup/nixos/1.md) | missing |
 
 **[Troubleshooting](/guides/troubleshooting.md)**
