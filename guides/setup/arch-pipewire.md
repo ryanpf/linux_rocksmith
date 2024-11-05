@@ -185,9 +185,9 @@ LD_PRELOAD=/usr/lib32/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
 
 You can launch the game from Steam now. For the first few boot-ups, you have to remove window focus from Rocksmith (typically done with Alt+Tab) as soon as the window shows up. If it doesn't crash, continue with instructions.
 
-Rocksmith might not have audio, however, if you don't get a message saying that there's no output device, RS_ASIO and JACK are working fine.
+If there is NO message saying "No output device found, RS_ASIO is working fine. If you can hear sound, everything works fine.
 
-Open qpwgraph or a different JACK patchbay software of your choice. We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay, so this is how you want to go about it:
+If you can't hear sound, open qpwgraph or a different JACK patchbay software of your choice. We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay, so this is how you want to go about it:
 
 1. Connect one device to Rocksmith
 1. Window focus to Rocksmith
@@ -215,7 +215,7 @@ If you want the Steam overlay to work, you need to launch the script via Steam, 
 
 ### Making it nice via Steam entry (optional, but recommended)
 
-With recent Proton versions can't start Rocksmith directly from the Steam Library. But we can use the Steam Library to start the script that starts the game in a way that Steam recognizes.
+With Proton's runtime, we can't start Rocksmith directly from the Steam Library just like that (other than LD_PRELOAD). But we can use the Steam Library to start the script that starts the game in a way that Steam recognizes.
 
 <details><summary>Fitting meme format</summary>
 

@@ -55,6 +55,8 @@ The rest will be set up later.
 
 # wineasio
 
+## Install
+
 <details><summary>Know already what's going on? Here are all commands in one piece without an explanation</summary>
 
 > **If the commands in this collapsible section don't work for you, try the "longer" variant first before asking for help.**
@@ -83,11 +85,7 @@ The rest will be set up later.
 >
 </details>
 
-
-
-[Download](https://github.com/wineasio/wineasio/releases) the newest .tar.gz and unpack it. Open a terminal inside the newly created folder and run the following commands:
-
-</details>
+[Download](https://github.com/wineasio/wineasio/releases) the newest .tar.gz and unpack it. Open a terminal inside the newly created folder.
 
 For Fedora, you need a modified Makefile, which you can download from [here](/guides/Makefile.mk). If the file is outdated, please create an issue and I will update it.
 
@@ -126,8 +124,6 @@ sudo cp build64/wineasio64.dll /usr/lib64/wine/x86_64-windows/wineasio64.dll
 sudo cp build64/wineasio64.dll.so /usr/lib64/wine/x86_64-unix/wineasio64.dll.so
 ```
 
-
-
 `wineasio` is now installed on your system.
 
 <details><summary>How to check if it's installed correctly</summary>
@@ -141,7 +137,7 @@ sudo cp build64/wineasio64.dll.so /usr/lib64/wine/x86_64-unix/wineasio64.dll.so
 >
 </details>
 
-&nbsp;
+## Make use of
 
 To make Proton use wineasio, we need to copy these files into the appropriate locations.
 

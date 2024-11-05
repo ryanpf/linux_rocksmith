@@ -56,10 +56,6 @@ The rest will be set up later.
 
 Installing `base-devel` is very useful for using the AUR and compiling in general.
 
-There are two ways to install wineasio:
-
-<details><summary>Compile from source</summary>
-
 <details><summary>Know already what's going on? Here are all commands in one piece without an explanation</summary>
 
 > **If the commands in this collapsible section don't work for you, try the "longer" variant first before asking for help.**
@@ -103,28 +99,6 @@ sudo cp build32/wineasio32.dll.so /usr/lib32/wine/i386-unix/wineasio32.dll.so
 sudo cp build64/wineasio64.dll /usr/lib/wine/x86_64-windows/wineasio64.dll
 sudo cp build64/wineasio64.dll.so /usr/lib/wine/x86_64-unix/wineasio64.dll.so
 ```
-
----
-
-</details>
-
-<details>
-<summary>Use the AUR</summary>
-
-`yay` is an AUR helper, which I will use as an example. It will install the AUR package for you. You can do this in other ways too, of course
-
-```
-yay -S wineasio --noconfirm
-```
-
-Notes:
-
-* If it exits with an error, try and remove `--noconfirm`.
-* [Tutorial on `yay`](https://youtube.com/watch?v=BbnSoY_yDr8)
-
----
-
-</details>
 
 `wineasio` is now installed on your system.
 
