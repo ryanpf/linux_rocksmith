@@ -1,6 +1,6 @@
 # JACK to ASIO with pipewire on Debian-based distros
 
-Last tested on Debian Bookworm.
+Last tested on Linux Mint 22.
 
 ## Table of contents
 
@@ -19,7 +19,7 @@ Last tested on Debian Bookworm.
 Install the kxstudio repo according to these instructions: https://kx.studio/Repositories
 
 ```
-dpkg --add-architecture i386
+sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt install wine pipewire-alsa pipewire-pulse pipewire-jack pipewire-jack:i386 qpwgraph pavucontrol wineasio
 # the groups should already exist, but just in case
@@ -33,7 +33,7 @@ Log out and back in. Or reboot, if that doesn't work.
 
 <details><summary> How to check if this worked correctly</summary>
 
-> For the packages, you can do `apt list --installed package-name` (You can do multiple packages at once) Should output the names and versions without errors.
+> For the packages, do `apt list --installed package-name` (You can do multiple packages at once) Should output the names and versions without errors.
 >
 > For the groups, run `groups`. This will give you a list, which should contain "audio" and "realtime".
 </details>
@@ -50,10 +50,6 @@ Delete or rename `$STEAMLIBRARY/steamapps/compatdata/221680`, then start Rocksmi
 The rest will be set up later.
 
 # wineasio
-
-
-
-&nbsp;
 
 To make Proton use wineasio, we need to copy these files into the appropriate locations.
 
@@ -123,14 +119,6 @@ Add these launch options to Rocksmith:
 ```
 LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
 ```
-
-This is currently a Debian-specific problem that currently only affects testing versions. If pipewire 1.2 gets pushed to stable and the problem persists, please tell me by opening an issue.
-
-Please download [this package](https://snapshot.debian.org/archive/debian/20240416T025914Z/pool/main/p/pipewire/pipewire-jack_1.0.5-1_i386.deb) (an older version of pipewire-jack) and extract libjack.so from `data.tar.gz/./usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so`. Preload that file instead.
-
-Instructions are from [#48](https://github.com/theNizo/linux_rocksmith/issues/48).
-
-You can otherwise create the start script and then run `LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so ./rocksmith-launcher.sh`.
 
 You can launch the game from Steam now. For the first few boot-ups, you have to remove window focus from Rocksmith (typically done with Alt+Tab) as soon as the window shows up. If it doesn't crash, continue with instructions.
 

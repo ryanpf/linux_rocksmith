@@ -1,4 +1,8 @@
-# JACK to ASIO with pipewire on Fedora Workstation
+# pipewire-jack on Fedora Workstation
+
+And Nobara, probably
+
+~~Last tested on Fedora Workstation 41.~~ I can't register the wineasio.dll files, see [#40](https://github.com/theNizo/linux_rocksmith/issues/40). Can't test this guide without it.
 
 ## Table of contents
 
@@ -14,7 +18,7 @@
 
 (I recommend `wine-staging` if your distro has it, but usual `wine` works as well.)
 
-**This guide will use the Steam package from "RPM Fusion nonfree". This is to avoid sandboxing being an issue for now.**
+**This guide will use the Steam package from "RPM Fusion nonfree". This is to avoid sandboxing being complicated for now.**
 
 An alternative way to do this via Flatpak is described [here](https://github.com/theNizo/linux_rocksmith/issues/31) Please note that the maintainer (theNizo) has no experience with Flatpak.
 
@@ -51,8 +55,6 @@ The rest will be set up later.
 
 # wineasio
 
-
-
 <details><summary>Know already what's going on? Here are all commands in one piece without an explanation</summary>
 
 > **If the commands in this collapsible section don't work for you, try the "longer" variant first before asking for help.**
@@ -85,38 +87,28 @@ The rest will be set up later.
 
 [Download](https://github.com/wineasio/wineasio/releases) the newest .tar.gz and unpack it. Open a terminal inside the newly created folder and run the following commands:
 
-<details><summary>[How to] Clone instead of downloading:</summary>
-
-> (No support for this way, as a release package is easier to replicate.)
->
-> ```
-> git clone --recursive https://github.com/wineasio/wineasio.git
-> cd wineasio
-> ```
->
-
 </details>
 
-For Fedora, you need a modified Makefile, which you can download from [here](../Makefile.mk) or modify yourself:
+For Fedora, you need a modified Makefile, which you can download from [here](/guides/Makefile.mk). If the file is outdated, please create an issue and I will update it.
 
-<details><summary>How to modify</summary>
+<details><summary>Alternatively, you can modify it yourself.</summary>
 
+> The file is called `Makefile.mk`
 >
 > Replace the line that says `LIBRARIES` (should be line 43) with this:
 >
+> ```
 > 	LIBRARIES             = -ljack
+> ```
 >
 > change `wineasio_dll_LDFLAGS` (should be line 62) according to this:
 >
-> Add these lines below `$(wineasio_dll_MODULE:%=%.spec) \`:
->
-> 	-L/usr/lib$(M) \
-> 	-L/usr/lib \
->
 > and these below `-L/usr/lib/$(ARCH)-linux-gnu/wine-development \`:
 >
-> 	-L/usr/lib$(M)/pipewire-0.3/jack \
-> 	-L/usr/lib/pipewire-0.3/jack \
+> ```
+> -L/usr/lib$(M)/pipewire-0.3/jack \
+> -L/usr/lib/pipewire-0.3/jack \
+> ```
 >
 </details>
 

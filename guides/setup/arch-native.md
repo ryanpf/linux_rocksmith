@@ -1,4 +1,4 @@
-# Native JACK to ASIO on Arch-based distros
+# Native JACK on Arch-based distros
 
 Tested on Arch Linux
 
@@ -22,6 +22,7 @@ If asked, replace `jack`.
 # If you use pipewire, I also recommend to install: pipewire-jack-client
 # If you use pulseaudio, I also recommend to install: pulseaudio-jack
 sudo pacman -S cadence carla jack2 lib32-jack2 realtime-privileges
+
 # the groups should already exist, but just in case
 sudo groupadd audio
 sudo groupadd realtime

@@ -1,4 +1,4 @@
-# JACK to ASIO with pipewire on Arch-based distros
+# JACK to ASIO on Arch-based distros
 
 Tested on Arch Linux
 

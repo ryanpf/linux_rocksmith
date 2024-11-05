@@ -21,8 +21,9 @@ Install the kxstudio repo according to these instructions: https://kx.studio/Rep
 When asked about realtime privileges, select yes with the arrow keys and confirm with enter.
 
 ```
+# If you use pulseaudio, I also recommend to install: pulseaudio-module-jack pulseaudio-module-jack:i386
 sudo apt update
-sudo apt install cadence carla wineasio jackd2
+sudo apt install wineasio jackd2 qjackctl libjack-dev libjack-dev:i386
 # the groups should already exist, but just in case
 sudo groupadd audio
 sudo groupadd realtime
@@ -34,7 +35,7 @@ Log out and back in. Or reboot, if that doesn't work.
 
 <details><summary> How to check if this worked correctly</summary>
 
-> For the packages, you can do `apt list --installed package-name` (You can do multiple packages at once) Should output the names and versions without errors.
+> For the packages, do `apt list --installed package-name` (You can do multiple packages at once) Should output the names and versions without errors.
 >
 > For the groups, run `groups`. This will give you a list, which should contain "audio" and "realtime".
 </details>
@@ -51,10 +52,6 @@ Delete or rename `$STEAMLIBRARY/steamapps/compatdata/221680`, then start Rocksmi
 The rest will be set up later.
 
 # wineasio
-
-
-
-&nbsp;
 
 To make Proton use wineasio, we need to copy these files into the appropriate locations.
 
@@ -84,7 +81,7 @@ env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx wineasio-register
 > ```
 > WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx $PROTON/bin/wine /path/to/VBASIOTest32.exe
 > ```
-> !! The command above currently might not work. You can try instead: `LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so wine /path/to/VBASIOTest32.exe` !!
+> !! The command above currently might not work. You can try instead: `LD_PRELOAD=/usr/lib/i386-linux-gnu/libjack.so wine /path/to/VBASIOTest32.exe` !!
 >
 </details>
 
@@ -97,19 +94,22 @@ And you're done with RS_ASIO. But in case you want to configure the inputs furth
 
 ## Set up JACK
 
-1. Open Cadence. If it says on the bottom left that you should log out and back in, and you already did that, restart your machine.
-1. Go to `Configure 🡲 Engine`. Make sure that "Realtime" is ticked.
-1. Go to "Driver", select ALSA.
- * If you use the same device for input and output, untick "Duplex Mode" and select the device you want to use in the first line. If you use different devices for in- and output, tick "Duplex Mode" and select the devices in the 2nd and 3rd line. Please note that the names are not that intuitive to begin with.
- * Input Channels: <no. of players + mic if you want>; Output Channels: 2 (Stereo)
- * Sample Rate: 48000
- * Buffer Size and Buffer Periods: 256/4 (~5ms) works fine for me and others. Bigger Buffer Size equals more stability and higher latency. AFAIK you can reduce the Buffer Size, if you add more Periods, but I'm not sure about that.
-1. Press okay and go to `Tweaks 🡲 WineASIO
- * Tick everything
- * Match No. of in- and -outputs
- * Match Buffer size
-1. Press apply
-1. You're set up. To start JACK, you can press "Start" under "System"
+Open QjackCtl and go to "Setup". Select
+
+1. Driver: alsa
+1. Tick "Realtime"
+1. Sample Rate: 48000
+1. Frames/Period: 256 (my recommendation)
+1. Periods/Buffer: 4 (my recommendation)
+1. Select audio device as described below.
+
+If you use the same device for input and output, you can set it in the "Parameters" 🡲 "Interface".
+
+If you use one device for input and one for output (say, RealToneCable and internal soundcard for example), select them in the "Advanced" Tab, as "Output Device" and "Input Device". The number of channels below are usually selected automatically
+
+Quick note on Frames and Buffer size: More frames equals better quality audio. More Buffer equals more stability. Higher numbers equal higher latency. 256/4 is decent audio with decent delay and works for most people.
+
+Press apply, close setup and try to start JACK.
 
 # Starting the game
 
@@ -128,18 +128,14 @@ If we start the game from the button that says "Play" in Steam, the game can't c
 
 Add these launch options to Rocksmith:
 ```
-LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
+LD_PRELOAD=/usr/lib/i386-linux-gnu/libjack.so %command%
 ```
 
 You can launch the game from Steam now. For the first few boot-ups, you have to remove window focus from Rocksmith (typically done with Alt+Tab) as soon as the window shows up. If it doesn't crash, continue with instructions.
 
-Rocksmith might not have audio, however, if you don't get a message saying that there's no output device, RS_ASIO and JACK are working fine.
+If there is NO message saying "No output device found, RS_ASIO is working fine. If you can hear sound, everything works fine.
 
-Open qpwgraph or a different JACK patchbay software of your choice. We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay, so this is how you want to go about it:
-
-1. Connect one device to Rocksmith
-1. Window focus to Rocksmith
-1. Go to step one, until you have connected everything
+If you can't hear sound, open QjackCtl and go to "Graph". We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay. I recommend connecting everything before entering a profile.
 
 ---
 
@@ -157,13 +153,13 @@ Please select the Proton Version you use (Rocksmith has been working fine since 
 * [Proton 9 or higher](/guides/start-script/proton-9.md) (newer versions)
 * [Proton 8 or lower](/guides/start-script/proton-8.md) (slightly easier)
 
-We can start the game via this script now: `PIPEWIRE_LATENCY="256/48000" path/to/rocksmith-launcher.sh`
+We can start the game via this script now: `path/to/rocksmith-launcher.sh`
 
 If you want the Steam overlay to work, you need to launch the script via Steam, see the next step.
 
 ### Making it nice via Steam entry (optional, but recommended)
 
-With recent Proton versions can't start Rocksmith directly from the Steam Library. But we can use the Steam Library to start the script that starts the game in a way that Steam recognizes.
+With Proton's runtime, we can't start Rocksmith directly from the Steam Library just like that (other than LD_PRELOAD). But we can use the Steam Library to start the script that starts the game in a way that Steam recognizes.
 
 <details><summary>Fitting meme format</summary>
 
@@ -188,9 +184,7 @@ Important Settings:
 * Runner: Linux
 * Working Directory: The folder where your script is.
 * Disable Lutris Runtime: true
-* Environment Variables:
-	* Name: PIPEWIRE_LATENCY
-	* Value: 256/48000
+
 </details>
 
 ### Beautification (even more optional, but recommended)

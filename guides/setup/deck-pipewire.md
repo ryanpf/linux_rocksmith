@@ -26,6 +26,7 @@ sudo steamos-readonly disable
 
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
+sudo pacman-key --populate holo
 
 sudo pacman -S realtime-privileges wine-staging
 # These packages are already on SteamOS so I did not install them:
@@ -58,6 +59,8 @@ Delete or rename `$STEAMLIBRARY/steamapps/compatdata/221680`, then start Rocksmi
 The rest will be set up later.
 
 # wineasio
+
+## Install
 
 Installing `base-devel` is very useful for using the AUR and compiling in general.
 
@@ -96,23 +99,7 @@ sudo pacman -S base-devel glibc linux-headers linux-api-headers libtool binutils
 >
 </details>
 
-
-
 [Download](https://github.com/wineasio/wineasio/releases) the newest .tar.gz and unpack it. Open a terminal inside the newly created folder and run the following commands:
-
-<details><summary>[How to] Clone instead of downloading:</summary>
-
-> (No support for this way, as a release package is easier to replicate.)
->
-> ```
-> git clone --recursive https://github.com/wineasio/wineasio.git
-> cd wineasio
-> ```
->
-
-</details>
-
-
 
 ```
 # build
@@ -143,7 +130,7 @@ Please reinstall `pipewire-jack lib32-pipewire-jack` again.
 >
 </details>
 
-&nbsp;
+## Make use of
 
 To make Proton use wineasio, we need to copy these files into the appropriate locations.
 
