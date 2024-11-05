@@ -2,7 +2,7 @@
 
 (Based on [BWagener](https://github.com/BWagener)'s original version)
 
-Not tested. Can someone owning a Steam Deck try this and correct it? (Open an issue with details or do a pull request.)
+Not tested. Can someone owning a Steam Deck try this and correct it? (in [#60](https://github.com/theNizo/linux_rocksmith/issues/60), open an issue with details, or pull request your desired changes.)
 
 ## Table of contents
 
