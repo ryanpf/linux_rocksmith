@@ -4,13 +4,9 @@
 
 (You can have pipewire and native JACK installed at the same time)
 
-On Linux, there's multiple audio systems. alsa, pulseaudio, and JACK. JACK is meant for professional audio.
+On Linux, there's multiple audio systems. alsa, pulseaudio, and JACK. JACK is meant for professional audio. With pipewire, we have another one that can act as all of the above, but internally, everything is on the same level.
 
-With pipewire, we have another one that can act as all of the above, but internally, everything is on the same level.
-
-With native JACK, we would need to start JACK before launching the game.
-
-With pipewire-jack, we wouldn't have to do that, but it often acts strange and it can lead to the game crashing immediately. Finding the cause is usually harder.
+With native JACK, we would need to start JACK before launching the game. With pipewire-jack, we wouldn't have to do that, but it often acts strange and it can lead to the game crashing immediately. Finding the cause is usually harder.
 
 Bottom line what I think is: pipewire-jack integrates better, native JACK is more reliable. I'm probably going with native JACK
 
@@ -38,13 +34,17 @@ Native JACK it is. LD_PRELOAD or start script is up to your preference.
 
 The rest of these statements will be for pipewire users.
 
-## "I want it to work reliably"
+## What's the simplest one?
 
-Native JACK with either one of the launch methods.
+alsa. It's also the one with the worst audio and latency. You might want to look at the next question though.
 
 ## "I want the easiest way to set it up"
 
 Native JACK with LD_PRELOAD.
+
+## "I want it to work reliably"
+
+Native JACK with either one of the launch methods.
 
 ## "I don't want my device to be exclusive."
 
