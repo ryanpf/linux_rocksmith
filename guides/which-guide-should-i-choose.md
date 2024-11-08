@@ -1,3 +1,5 @@
+[Yo dawg.](/img/yo-dawg.webp)
+
 # What are the differences between the approaches?
 
 ## Native JACK vs. pipewire-jack
@@ -45,6 +47,14 @@ Native JACK with LD_PRELOAD.
 ## "I want it to work reliably"
 
 Native JACK with either one of the launch methods.
+
+## "I want to play multiplayer"
+
+There's a way to use multiple devices with native JACK, but I haven't looked into it too much.
+
+If you have an audio interface with multiple inputs, you can use either one.
+
+If you don't, I recommend pipewire-jack.
 
 ## "I don't want my device to be exclusive."
 

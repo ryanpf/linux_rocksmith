@@ -1,6 +1,6 @@
 # JACK to ASIO on Debian-based distros
 
-Last tested on Debian Bookworm.
+Last tested on Linux Mint 22.
 
 ## Table of contents
 

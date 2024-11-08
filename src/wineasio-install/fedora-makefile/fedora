@@ -1,0 +1,22 @@
+For Fedora, you need a modified Makefile, which you can download from [here](/guides/Makefile.mk). If the file is outdated, please create an issue and I will update it.
+
+<details><summary>Alternatively, you can modify it yourself.</summary>
+
+> The file is called `Makefile.mk`
+>
+> Replace the line that says `LIBRARIES` (should be line 43) with this:
+>
+> ```
+> 	LIBRARIES             = -ljack
+> ```
+>
+> change `wineasio_dll_LDFLAGS` (should be line 62) according to this:
+>
+> and these below `-L/usr/lib/$(ARCH)-linux-gnu/wine-development \`:
+>
+> ```
+> -L/usr/lib$(M)/pipewire-0.3/jack \
+> -L/usr/lib/pipewire-0.3/jack \
+> ```
+>
+</details>

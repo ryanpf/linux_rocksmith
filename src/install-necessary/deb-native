@@ -1,0 +1,8 @@
+Install the kxstudio repo according to these instructions: https://kx.studio/Repositories
+
+When asked about realtime privileges, select yes with the arrow keys and confirm with enter.
+
+```
+# If you use pulseaudio, I also recommend to install: pulseaudio-module-jack pulseaudio-module-jack:i386
+sudo apt update
+sudo apt install wineasio jackd2 qjackctl libjack-dev libjack-dev:i386

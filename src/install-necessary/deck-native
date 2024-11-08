@@ -1,0 +1,10 @@
+```
+# disable readonly mode
+sudo steamos-readonly disable
+
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+sudo pacman-key --populate holo
+
+# I also recommend to install: pipewire-jack-client
+sudo pacman -S realtime-privileges wine-staging base-devel glibc linux-headers linux-api-headers libtool binutils lib32-glibc lib32-jack2 jack2 qjackctl

@@ -74,9 +74,10 @@ Then there's the way of routing the audio through JACK -> wineASIO -> RS_ASIO, w
 
 **Recent Proton versions:**
 
-If you don't use pipewire, choose the native JACK guide.
+* If you don't use pipewire, choose the native JACK guide.
+* If you use pipewire, you can choose either one.
 
-Also see ["Which guide should I choose?"](/guides/which-guide-should-i-choose.md)
+[Need help deciding? You can read this.](/guides/which-guide-should-i-choose.md)
 
 || pipewire-jack | native JACK |
 |---|---|---|
