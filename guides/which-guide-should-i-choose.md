@@ -36,7 +36,7 @@ Native JACK it is. LD_PRELOAD or start script is up to your preference.
 
 The rest of these statements will be for pipewire users.
 
-### What's the simplest one?
+### "What's the simplest one?"
 
 alsa. It's also the one with the worst audio and latency. You might want to look at the next question though.
 
