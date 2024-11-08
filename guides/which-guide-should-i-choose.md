@@ -16,11 +16,11 @@ Bottom line what I think is: pipewire-jack integrates better, native JACK is mor
 
 Due to the Steam Runtime, JACK usually doesn't work with Steam games. These are ways to make them work with it.
 
-## "I use native JACK"
+### Native JACK
 
 LD_PRELOAD is going to be faster to set up, but you can do either one or both.
 
-## "I use pipewire-jack"
+### pipewire-jack
 
 I've heard of cases where the audio devices don't connect reliably when using LD_PRELOAD.
 
@@ -30,25 +30,25 @@ In some cases, one of the approaches doesn't work on a specific distro. I've put
 
 # Which guide should I choose?
 
-## "I do not use pipewire."
+### "I do not use pipewire."
 
 Native JACK it is. LD_PRELOAD or start script is up to your preference.
 
 The rest of these statements will be for pipewire users.
 
-## What's the simplest one?
+### What's the simplest one?
 
 alsa. It's also the one with the worst audio and latency. You might want to look at the next question though.
 
-## "I want the easiest way to set it up"
+### "I want the easiest way to set it up"
 
 Native JACK with LD_PRELOAD.
 
-## "I want it to work reliably"
+### "I want it to work reliably"
 
 Native JACK with either one of the launch methods.
 
-## "I want to play multiplayer"
+### "I want to play multiplayer"
 
 There's a way to use multiple devices with native JACK, but I haven't looked into it too much.
 
@@ -56,13 +56,13 @@ If you have an audio interface with multiple inputs, you can use either one.
 
 If you don't, I recommend pipewire-jack.
 
-## "I don't want my device to be exclusive."
+### "I don't want my device to be exclusive."
 
 pipewire-jack.
 
-(Maybe it's possible with native JACK using `pipewire-jack-client`, but I couldn't figure that out yet.)
+(Maybe it's possible with native JACK using [`pipewire-jack-client`](https://wiki.archlinux.org/title/PipeWire#Run_PipeWire_on_top_of_native_JACK), but I couldn't figure that out yet.)
 
-## "I just want to click one button and expect the thing to work pretty much all the time."
+### "I just want to click one button and expect the thing to work pretty much all the time."
 
 Just saying, pressing 2 buttons makes this close to possible without giving you headaches. But if you want to...
 
