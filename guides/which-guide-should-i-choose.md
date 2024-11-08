@@ -1,4 +1,4 @@
-[Yo dawg.](/img/yo-dawg.webp)
+[Yo dawg.](https://raw.githubusercontent.com/theNizo/linux_rocksmith/refs/heads/main/img/yo-dawg.webp)
 
 # What are the differences between the approaches?
 
