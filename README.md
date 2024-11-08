@@ -6,7 +6,7 @@ These are a few Guides to get [Rocksmith 2014](https://store.steampowered.com/ap
 
 This is the bare minimum to get it to work. I don't know if certain changes recommended by other people have a performance impact.
 
-I tested it on Manjaro, Arch and a Linux Mint VM. Due to the VM factor, I was actually able to start the game, but I got about 1fps, definitely not playable.
+Last Distro + version tested on is litsed under the title of the guide.
 
 I have only tested the Steam version.
 
@@ -44,7 +44,7 @@ PROTON=$HOME/.steam/steam/steamapps/common/Proton 7.0/dist/
 > You can check the environment variables by running `echo $NAME`.
 >
 > I recommend putting double quotes around the paths, just to be sure.
-
+>
 > #### Temporary:
 >
 > Totally fine for our usecase. Insert your paths and run these lines like commands. Keep in mind that these are only temporary. It only applies to the terminal instance you set it in. If you were to open a new terminal window, you'd have to enter them again to be able to use them.
@@ -70,7 +70,7 @@ PROTON=$HOME/.steam/steam/steamapps/common/Proton 7.0/dist/
 
 There are two ways to do this. The one most people on [ProtonDB](https://www.protondb.com/app/221680) use is quicker, but results in high delay and distorted sound. It routes the sound through ALSA. This can be found in "Other Guides".
 
-Then there's the way of routing the audio through JACK -> wineASIO -> RS_ASIO, which has less delay and sounds better, but also takes longer to set up. These can be found in the table below.
+Then there's the way of routing the audio through JACK 🡲 wineASIO 🡲 RS_ASIO 🡲 Rocksmith 2014, which has less delay and sounds better, but also takes longer to set up. These can be found in the table below.
 
 **Recent Proton versions:**
 
@@ -105,11 +105,13 @@ Then there's the way of routing the audio through JACK -> wineASIO -> RS_ASIO, w
 These are outated. I'll leave the content here just in case.
 
 <details>
+
 > Because someone asked, I have written scripts that do everything for you.
 >
 > For native Steam: `wget https://raw.githubusercontent.com/theNizo/linux_rocksmith/main/scripts/native-steam.sh && ./native-steam.sh && rm native-steam.sh`
 >
 > For other Rocksmith installations: `wget https://raw.githubusercontent.com/theNizo/linux_rocksmith/main/scripts/other.sh && ./other.sh && rm other.sh`
+
 </details>
 
 ## Credits
@@ -120,5 +122,7 @@ These are outated. I'll leave the content here just in case.
 * [BWagener](https://github.com/BWagener) for writing the Steam Deck Guide.
 * [Siarkowy](https://github.com/Siarkowy) for replacing the "JustInCaseWeNeedIt" workaround and the shortcut in Steam.
 * [TimP4w](https://github.com/TimP4w) for the NixOS guide.
+
+Also a big thank you to the people working on [wineASIO](https://github.com/wineasio/wineasio) and [RS_ASIO](https://github.com/mdias/rs_asio)
 
 Thank you all for the work ^^
