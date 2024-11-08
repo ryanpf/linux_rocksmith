@@ -1,4 +1,4 @@
-# JACK to ASIO on Arch-based distros
+# pipewire-jack on Arch-based distros
 
 Tested on Arch Linux
 
@@ -31,7 +31,7 @@ Log out and back in. Or reboot, if that doesn't work.
 
 <details><summary> How to check if this worked correctly</summary>
 
-> For the packages, do `pacman -Q package-name`. (You can do multiple packages at once) Should output the names and versions without errors.
+> For the packages, do `pacman -Q <package-name>` (You can do multiple packages at once). Should output the names and versions without errors.
 >
 > For the groups, run `groups`. This will give you a list, which should contain "audio" and "realtime".
 </details>
@@ -81,7 +81,9 @@ Installing `base-devel` is very useful for using the AUR and compiling in genera
 >
 </details>
 
-[Download](https://github.com/wineasio/wineasio/releases) the newest .tar.gz and unpack it. Open a terminal inside the newly created folder and run the following commands:
+[Download](https://github.com/wineasio/wineasio/releases) the newest .tar.gz and unpack it. Open a terminal inside the newly created folder.
+
+
 
 ```
 # build
@@ -96,6 +98,8 @@ sudo cp build32/wineasio32.dll.so /usr/lib32/wine/i386-unix/wineasio32.dll.so
 sudo cp build64/wineasio64.dll /usr/lib/wine/x86_64-windows/wineasio64.dll
 sudo cp build64/wineasio64.dll.so /usr/lib/wine/x86_64-unix/wineasio64.dll.so
 ```
+
+
 
 `wineasio` is now installed on your system.
 
@@ -173,8 +177,6 @@ If we start the game from the button that says "Play" in Steam, the game can't c
 
 <details><summary>1. LD_PRELOAD</summary>
 
-!! It seems like this currently doesn't work on Arch. Please use the start script instead !!
-
 * Advantages: Run from Steam directly
 * Disadvantages: higher possibility of crashes, steps you might need to do every game-boot.
 
@@ -187,8 +189,9 @@ You can launch the game from Steam now. For the first few boot-ups, you have to 
 
 If there is NO message saying "No output device found, RS_ASIO is working fine. If you can hear sound, everything works fine.
 
-If you can't hear sound, open qpwgraph or a different JACK patchbay software of your choice. We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay, so this is how you want to go about it:
+If you cannot hear sound, open qpwgraph or a different JACK patchbay software of your choice. We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay, so this is how you want to go about it:
 
+1. Ideally do it while the game starts up (logo screens appear). The Rocksmit logo is still safe, anything after that is not recommended.
 1. Connect one device to Rocksmith
 1. Window focus to Rocksmith
 1. Go to step one, until you have connected everything
@@ -215,7 +218,7 @@ If you want the Steam overlay to work, you need to launch the script via Steam, 
 
 ### Making it nice via Steam entry (optional, but recommended)
 
-With Proton's runtime, we can't start Rocksmith directly from the Steam Library just like that (other than LD_PRELOAD). But we can use the Steam Library to start the script that starts the game in a way that Steam recognizes.
+With Proton's runtime, we can't start Rocksmith directly from the Steam Library just like that (excluding LD_PRELOAD). But we can use the Steam Library to start the script that starts the game in a way that Steam recognizes.
 
 <details><summary>Fitting meme format</summary>
 

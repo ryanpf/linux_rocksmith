@@ -18,12 +18,12 @@
 > sudo cp build32/wineasio32.dll 000-lib32windows-000/wineasio32.dll
 > sudo cp build32/wineasio32.dll.so 000-lib32unix-000/wineasio32.dll.so
 > sudo cp build64/wineasio64.dll 000-lib64windows-000/wineasio64.dll
-> sudo cp build64/wineasio64.dll.so 000-lib32unix-000/wineasio64.dll.so
+> sudo cp build64/wineasio64.dll.so 000-lib64unix-000/wineasio64.dll.so
 > cp build32/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio.dll"
 > cp build32/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio.dll.so"
 > cp build64/wineasio64.dll "$PROTON/lib/wine/x86_64-windows/wineasio.dll"
 > cp build64/wineasio64.dll.so "$PROTON/lib/wine/x86_64-unix/wineasio.dll.so"
-> env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
+> env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx 000-wineasio-register-000
 > ```
 >
 > And you're done, continue with [Installing RS_ASIO](#installing-rs_asio).
@@ -45,7 +45,7 @@ make 64
 sudo cp build32/wineasio32.dll 000-lib32windows-000/wineasio32.dll
 sudo cp build32/wineasio32.dll.so 000-lib32unix-000/wineasio32.dll.so
 sudo cp build64/wineasio64.dll 000-lib64windows-000/wineasio64.dll
-sudo cp build64/wineasio64.dll.so 000-lib32unix-000/wineasio64.dll.so
+sudo cp build64/wineasio64.dll.so 000-lib64unix-000/wineasio64.dll.so
 ```
 
 000-deck-pipewire-reinstall-000

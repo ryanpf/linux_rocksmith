@@ -26,7 +26,7 @@ sudo usermod -aG realtime $USER
 
 <details><summary> How to check if this worked correctly</summary>
 
-> For the packages, do `000-list-inst-000 <package-name>`. (You can do multiple packages at once) Should output the names and versions without errors.
+> For the packages, do `000-list-inst-000 <package-name>` (You can do multiple packages at once). Should output the names and versions without errors.
 >
 > For the groups, run `groups`. This will give you a list, which should contain "audio" and "realtime".
 </details>

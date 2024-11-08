@@ -34,7 +34,7 @@ Log out and back in. Or reboot, if that doesn't work.
 
 <details><summary> How to check if this worked correctly</summary>
 
-> For the packages, do `pacman -Q package-name`. (You can do multiple packages at once) Should output the names and versions without errors.
+> For the packages, do `pacman -Q <package-name>` (You can do multiple packages at once). Should output the names and versions without errors.
 >
 > For the groups, run `groups`. This will give you a list, which should contain "audio" and "realtime".
 </details>
@@ -84,7 +84,9 @@ Installing `base-devel` is very useful for using the AUR and compiling in genera
 >
 </details>
 
-[Download](https://github.com/wineasio/wineasio/releases) the newest .tar.gz and unpack it. Open a terminal inside the newly created folder and run the following commands:
+[Download](https://github.com/wineasio/wineasio/releases) the newest .tar.gz and unpack it. Open a terminal inside the newly created folder.
+
+
 
 ```
 # build
@@ -99,6 +101,8 @@ sudo cp build32/wineasio32.dll.so /usr/lib32/wine/i386-unix/wineasio32.dll.so
 sudo cp build64/wineasio64.dll /usr/lib/wine/x86_64-windows/wineasio64.dll
 sudo cp build64/wineasio64.dll.so /usr/lib/wine/x86_64-unix/wineasio64.dll.so
 ```
+
+
 
 `wineasio` is now installed on your system.
 
@@ -190,14 +194,14 @@ If we start the game from the button that says "Play" in Steam, the game can't c
 
 Add these launch options to Rocksmith:
 ```
-LD_PRELOAD=/usr/lib32/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
+LD_PRELOAD=/usr/lib32/libjack.so %command%
 ```
 
 You can launch the game from Steam now. For the first few boot-ups, you have to remove window focus from Rocksmith (typically done with Alt+Tab) as soon as the window shows up. If it doesn't crash, continue with instructions.
 
 If there is NO message saying "No output device found, RS_ASIO is working fine. If you can hear sound, everything works fine.
 
-If you can't hear sound, open QjackCtl and go to "Graph". We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay. I recommend connecting everything before entering a profile.
+If you cannot hear sound, open QjackCtl and go to "Graph". We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay. I recommend connecting everything before entering a profile.
 
 ---
 
@@ -221,7 +225,7 @@ If you want the Steam overlay to work, you need to launch the script via Steam, 
 
 ### Making it nice via Steam entry (optional, but recommended)
 
-With Proton's runtime, we can't start Rocksmith directly from the Steam Library just like that (other than LD_PRELOAD). But we can use the Steam Library to start the script that starts the game in a way that Steam recognizes.
+With Proton's runtime, we can't start Rocksmith directly from the Steam Library just like that (excluding LD_PRELOAD). But we can use the Steam Library to start the script that starts the game in a way that Steam recognizes.
 
 <details><summary>Fitting meme format</summary>
 
