@@ -1,6 +1,6 @@
-# JACK to ASIO with pipewire on Debian-based distros
+# pipewire-jack on Debian-based distros
 
-Last tested on Debian Bookworm.
+Last tested on Linux Mint 22.
 
 ## Table of contents
 
@@ -19,7 +19,7 @@ Last tested on Debian Bookworm.
 Install the kxstudio repo according to these instructions: https://kx.studio/Repositories
 
 ```
-dpkg --add-architecture i386
+sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt install wine pipewire-alsa pipewire-pulse pipewire-jack pipewire-jack:i386 qpwgraph pavucontrol wineasio
 # the groups should already exist, but just in case
@@ -33,7 +33,7 @@ Log out and back in. Or reboot, if that doesn't work.
 
 <details><summary> How to check if this worked correctly</summary>
 
-> For the packages, you can do `apt list --installed package-name` (You can do multiple packages at once) Should output the names and versions without errors.
+> For the packages, do `apt list --installed <package-name>` (You can do multiple packages at once). Should output the names and versions without errors.
 >
 > For the groups, run `groups`. This will give you a list, which should contain "audio" and "realtime".
 </details>
@@ -52,8 +52,6 @@ The rest will be set up later.
 # wineasio
 
 
-
-&nbsp;
 
 To make Proton use wineasio, we need to copy these files into the appropriate locations.
 
@@ -92,7 +90,7 @@ env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx wineasio-register
 1. [Download](https://github.com/mdias/rs_asio/releases) the newest release, unpack everything to the root of your Rocksmith installation (`$STEAMLIBRARY/steamapps/common/Rocksmith2014/`)
 1. Edit RS_ASIO.ini: fill in `wineasio-rsasio` where it says `Driver=`. Do this for every Output and Input section.
 
-And you're done with RS_ASIO. But in case you want to configure the inputs further, see [this](/guides/setup-rs-asio.md).
+And you're done with RS_ASIO. But in case you want to configure the inputs further (relevant for multiplayer), see [this](/guides/setup-rs-asio.md).
 
 ## Set up JACK
 
@@ -124,20 +122,13 @@ Add these launch options to Rocksmith:
 LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
 ```
 
-This is currently a Debian-specific problem that currently only affects testing versions. If pipewire 1.2 gets pushed to stable and the problem persists, please tell me by opening an issue.
-
-Please download [this package](https://snapshot.debian.org/archive/debian/20240416T025914Z/pool/main/p/pipewire/pipewire-jack_1.0.5-1_i386.deb) (an older version of pipewire-jack) and extract libjack.so from `data.tar.gz/./usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so`. Preload that file instead.
-
-Instructions are from [#48](https://github.com/theNizo/linux_rocksmith/issues/48).
-
-You can otherwise create the start script and then run `LD_PRELOAD=/usr/lib/i386-linux-gnu/pipewire-0.3/jack/libjack.so ./rocksmith-launcher.sh`.
-
 You can launch the game from Steam now. For the first few boot-ups, you have to remove window focus from Rocksmith (typically done with Alt+Tab) as soon as the window shows up. If it doesn't crash, continue with instructions.
 
-Rocksmith might not have audio, however, if you don't get a message saying that there's no output device, RS_ASIO and JACK are working fine.
+If there is NO message saying "No output device found, RS_ASIO is working fine. If you can hear sound, everything works fine.
 
-Open qpwgraph or a different JACK patchbay software of your choice. We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay, so this is how you want to go about it:
+If you cannot hear sound, open qpwgraph or a different JACK patchbay software of your choice. We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay, so this is how you want to go about it:
 
+1. Ideally do it while the game starts up (logo screens appear). The Rocksmit logo is still safe, anything after that is not recommended.
 1. Connect one device to Rocksmith
 1. Window focus to Rocksmith
 1. Go to step one, until you have connected everything
@@ -164,7 +155,7 @@ If you want the Steam overlay to work, you need to launch the script via Steam, 
 
 ### Making it nice via Steam entry (optional, but recommended)
 
-With recent Proton versions can't start Rocksmith directly from the Steam Library. But we can use the Steam Library to start the script that starts the game in a way that Steam recognizes.
+With Proton's runtime, we can't start Rocksmith directly from the Steam Library just like that (excluding LD_PRELOAD). But we can use the Steam Library to start the script that starts the game in a way that Steam recognizes.
 
 <details><summary>Fitting meme format</summary>
 

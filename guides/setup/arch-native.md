@@ -1,4 +1,4 @@
-# pipewire-jack on Arch-based distros
+# Native JACK on Arch-based distros
 
 Tested on Arch Linux
 
@@ -16,10 +16,13 @@ Tested on Arch Linux
 
 (I recommend `wine-staging` if your distro has it, but usual `wine` works as well.)
 
-I assume that `pipewire` and a session manager (eg. `wireplumber`, or `pipewire-media-session`) is already installed.
+If asked, replace `jack`.
 
 ```
-sudo pacman -S wine-staging pipewire-alsa pipewire-pulse pipewire-jack lib32-pipewire-jack qpwgraph realtime-privileges pavucontrol
+# If you use pipewire, I also recommend to install: pipewire-jack-client
+# If you use pulseaudio, I also recommend to install: pulseaudio-jack
+sudo pacman -S cadence carla jack2 lib32-jack2 realtime-privileges
+
 # the groups should already exist, but just in case
 sudo groupadd audio
 sudo groupadd realtime
@@ -157,13 +160,22 @@ And you're done with RS_ASIO. But in case you want to configure the inputs furth
 
 ## Set up JACK
 
-I prefer to set up my audio devices with pavucontrol ("PulseAudio Volume Control"), which works if `pipewire-pulse` is installed.
+Open QjackCtl and go to "Setup". Select
 
-It's most reliable to NOT set your devices to Pro-Audio (under "Configuration") and leave pavucontrol open when starting the game.
+1. Driver: alsa
+1. Tick "Realtime"
+1. Sample Rate: 48000
+1. Frames/Period: 256 (my recommendation)
+1. Periods/Buffer: 4 (my recommendation)
+1. Select audio device as described below.
 
-All available devices will automatically be tied to Rocksmith, and the game doesn't like you messing around in the patchbay (= it's possible, but would crash often). You default audio device will be taken first, then the others will be assigned. The order can most likely not be predicted.
+If you use the same device for input and output, you can set it in the "Parameters" 🡲 "Interface".
 
-If you want to make sure it does what you want, select only one output and just as much inputs as you need (1 input (eg. singleplayer) = 1 device; 2 inputs (eg. 2 Players) = 2 devices, etc.). I like to do this via `pavucontrol`, which works if `pipewire-pulse` is installed.
+If you use one device for input and one for output (say, RealToneCable and internal soundcard for example), select them in the "Advanced" Tab, as "Output Device" and "Input Device". The number of channels below are usually selected automatically
+
+Quick note on Frames and Buffer size: More frames equals better quality audio. More Buffer equals more stability. Higher numbers equal higher latency. 256/4 is decent audio with decent delay and works for most people.
+
+Press apply, close setup and try to start JACK.
 
 # Starting the game
 
@@ -171,7 +183,7 @@ If you want to make sure it does what you want, select only one output and just 
 
 Delete the `Rocksmith.ini` inside your Rocksmith installation. It will auto-generate with the correct values. The only important part is the `LatencyBuffer=`, which has to match the Buffer Periods.
 
-Steam needs to be running.
+Steam and JACK need to be running.
 
 If we start the game from the button that says "Play" in Steam, the game can't connect to wineasio (you won't have sound and will get an error message). This is an issue with Steam and pipewire-jack. There are two ways to go about this. You can apply both at the same time, they don't break each other.
 
@@ -182,19 +194,14 @@ If we start the game from the button that says "Play" in Steam, the game can't c
 
 Add these launch options to Rocksmith:
 ```
-LD_PRELOAD=/usr/lib32/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
+LD_PRELOAD=/usr/lib32/libjack.so %command%
 ```
 
 You can launch the game from Steam now. For the first few boot-ups, you have to remove window focus from Rocksmith (typically done with Alt+Tab) as soon as the window shows up. If it doesn't crash, continue with instructions.
 
 If there is NO message saying "No output device found, RS_ASIO is working fine. If you can hear sound, everything works fine.
 
-If you cannot hear sound, open qpwgraph or a different JACK patchbay software of your choice. We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay, so this is how you want to go about it:
-
-1. Ideally do it while the game starts up (logo screens appear). The Rocksmit logo is still safe, anything after that is not recommended.
-1. Connect one device to Rocksmith
-1. Window focus to Rocksmith
-1. Go to step one, until you have connected everything
+If you cannot hear sound, open QjackCtl and go to "Graph". We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay. I recommend connecting everything before entering a profile.
 
 ---
 
@@ -212,7 +219,7 @@ Please select the Proton Version you use (Rocksmith has been working fine since 
 * [Proton 9 or higher](/guides/start-script/proton-9.md) (newer versions)
 * [Proton 8 or lower](/guides/start-script/proton-8.md) (slightly easier)
 
-We can start the game via this script now: `PIPEWIRE_LATENCY="256/48000" path/to/rocksmith-launcher.sh`
+We can start the game via this script now: `path/to/rocksmith-launcher.sh`
 
 If you want the Steam overlay to work, you need to launch the script via Steam, see the next step.
 
@@ -243,9 +250,7 @@ Important Settings:
 * Runner: Linux
 * Working Directory: The folder where your script is.
 * Disable Lutris Runtime: true
-* Environment Variables:
-	* Name: PIPEWIRE_LATENCY
-	* Value: 256/48000
+
 </details>
 
 ### Beautification (even more optional, but recommended)

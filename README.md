@@ -74,12 +74,17 @@ Then there's the way of routing the audio through JACK -> wineASIO -> RS_ASIO, w
 
 **Recent Proton versions:**
 
-|| pipewire | non-pipewire |
+* If you don't use pipewire, choose the native JACK guide.
+* If you use pipewire, you can choose either one.
+
+[Need help deciding? You can read this.](/guides/which-guide-should-i-choose.md)
+
+|| pipewire-jack | native JACK |
 |---|---|---|
-| Arch | [Guide](guides/setup/arch-pipewire.md) | [Guide](guides/setup/arch-non-pipewire.md) |
-| Debian | [Guide](guides/setup/deb-pipewire.md) | [Guide](guides/setup/deb-non-pipewire.md) |
+| Arch | [Guide](guides/setup/arch-pipewire.md) | [Guide](guides/setup/arch-native.md) |
+| Debian | [Guide](guides/setup/deb-pipewire.md) | [Guide](guides/setup/deb-native.md) |
 | Fedora | [Guide](guides/setup/fed-pipewire.md) | postponed, see [#40](https://github.com/theNizo/linux_rocksmith/issues/40) |
-| Steam Deck | [Guide](guides/setup/deck-pipewire.md) | in development |
+| Steam Deck | [Guide](guides/setup/deck-pipewire.md) | [Untested](guides/setup/deck-native.md) |
 | NixOS | [Guide](guides/setup/nixos/1.md) | missing |
 
 **[Troubleshooting](/guides/troubleshooting.md)**

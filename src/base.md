@@ -14,7 +14,7 @@
 
 (I recommend `wine-staging` if your distro has it, but usual `wine` works as well.)
 
-000-install-part-000
+000-install-necessary-000
 # the groups should already exist, but just in case
 sudo groupadd audio
 sudo groupadd realtime
@@ -22,11 +22,11 @@ sudo usermod -aG audio $USER
 sudo usermod -aG realtime $USER
 ```
 
-Log out and back in. Or reboot, if that doesn't work.
+000-install-necessary-post-000
 
 <details><summary> How to check if this worked correctly</summary>
 
-000-install-check-000
+> For the packages, do `000-list-inst-000 <package-name>` (You can do multiple packages at once). Should output the names and versions without errors.
 >
 > For the groups, run `groups`. This will give you a list, which should contain "audio" and "realtime".
 </details>
@@ -44,19 +44,17 @@ The rest will be set up later.
 
 # wineasio
 
-000-install-wineasio-system-000
-
-&nbsp;
+000-wineasio-install-000
 
 To make Proton use wineasio, we need to copy these files into the appropriate locations.
 
 **STOP!** If you haven't set the environment variables yet, please follow [this part](/README.md#common-paths) of the prerequisites, then continue.
 
 ```
-cp 000-x32unix-000/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio32.dll.so"
-cp 000-x64unix-000/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio64.dll.so"
-cp 000-x32windows-000/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio32.dll"
-cp 000-x64windows-000/wineasio64.dll "$PROTON/lib64/wine/x86_64-windows/wineasio64.dll"
+cp 000-lib32unix-000/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio32.dll.so"
+cp 000-lib64unix-000/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio64.dll.so"
+cp 000-lib32windows-000/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio32.dll"
+cp 000-lib64windows-000/wineasio64.dll "$PROTON/lib64/wine/x86_64-windows/wineasio64.dll"
 ```
 
 In theory, this should also work with Lutris runners (located in `$HOME/.local/share/lutris/runners/wine/`)
@@ -64,7 +62,7 @@ In theory, this should also work with Lutris runners (located in `$HOME/.local/s
 To register wineasio (so that it can be used in the prefix), run the `wineasio-register` script that comes in the wineasio zip and set the `WINEPREFIX` to Rocksmiths.
 
 ```
-000-wineasio-register-000
+env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx 000-wineasio-register-000
 ```
 
 <details><summary> How to check if this worked correctly</summary>
@@ -85,11 +83,11 @@ To register wineasio (so that it can be used in the prefix), run the `wineasio-r
 1. [Download](https://github.com/mdias/rs_asio/releases) the newest release, unpack everything to the root of your Rocksmith installation (`$STEAMLIBRARY/steamapps/common/Rocksmith2014/`)
 1. Edit RS_ASIO.ini: fill in `wineasio-rsasio` where it says `Driver=`. Do this for every Output and Input section.
 
-And you're done with RS_ASIO. But in case you want to configure the inputs further, see [this](/guides/setup-rs-asio.md).
+And you're done with RS_ASIO. But in case you want to configure the inputs further (relevant for multiplayer), see [this](/guides/setup-rs-asio.md).
 
 ## Set up JACK
 
-000-jack-setup-000
+000-set-up-jack-000
 
 # Starting the game
 
@@ -97,7 +95,7 @@ And you're done with RS_ASIO. But in case you want to configure the inputs furth
 
 Delete the `Rocksmith.ini` inside your Rocksmith installation. It will auto-generate with the correct values. The only important part is the `LatencyBuffer=`, which has to match the Buffer Periods.
 
-000-steam-running-required-000
+000-steam-running-000
 
 If we start the game from the button that says "Play" in Steam, the game can't connect to wineasio (you won't have sound and will get an error message). This is an issue with Steam and pipewire-jack. There are two ways to go about this. You can apply both at the same time, they don't break each other.
 
@@ -108,18 +106,14 @@ If we start the game from the button that says "Play" in Steam, the game can't c
 
 Add these launch options to Rocksmith:
 ```
-LD_PRELOAD=000-libjack-path-000/libjack.so PIPEWIRE_LATENCY=256/48000 %command%
+000-ldpreload-command-000
 ```
 
 You can launch the game from Steam now. For the first few boot-ups, you have to remove window focus from Rocksmith (typically done with Alt+Tab) as soon as the window shows up. If it doesn't crash, continue with instructions.
 
-Rocksmith might not have audio, however, if you don't get a message saying that there's no output device, RS_ASIO and JACK are working fine.
+If there is NO message saying "No output device found, RS_ASIO is working fine. If you can hear sound, everything works fine.
 
-Open qpwgraph or a different JACK patchbay software of your choice. We want to connect microphones to the inputs of Rocksmith and two outputs to our actual output device. Rocksmith will sometimes crash when messing with the patchbay, so this is how you want to go about it:
-
-1. Connect one device to Rocksmith
-1. Window focus to Rocksmith
-1. Go to step one, until you have connected everything
+000-connect-sound-000
 
 ---
 
@@ -137,13 +131,13 @@ Please select the Proton Version you use (Rocksmith has been working fine since 
 * [Proton 9 or higher](/guides/start-script/proton-9.md) (newer versions)
 * [Proton 8 or lower](/guides/start-script/proton-8.md) (slightly easier)
 
-We can start the game via this script now: `PIPEWIRE_LATENCY="256/48000" path/to/rocksmith-launcher.sh`
+We can start the game via this script now: `000-start-via-script-000`
 
 If you want the Steam overlay to work, you need to launch the script via Steam, see the next step.
 
 ### Making it nice via Steam entry (optional, but recommended)
 
-With recent Proton versions can't start Rocksmith directly from the Steam Library. But we can use the Steam Library to start the script that starts the game in a way that Steam recognizes.
+With Proton's runtime, we can't start Rocksmith directly from the Steam Library just like that (excluding LD_PRELOAD). But we can use the Steam Library to start the script that starts the game in a way that Steam recognizes.
 
 <details><summary>Fitting meme format</summary>
 
@@ -168,9 +162,7 @@ Important Settings:
 * Runner: Linux
 * Working Directory: The folder where your script is.
 * Disable Lutris Runtime: true
-* Environment Variables:
-	* Name: PIPEWIRE_LATENCY
-	* Value: 256/48000
+000-lutris-env-000
 </details>
 
 ### Beautification (even more optional, but recommended)

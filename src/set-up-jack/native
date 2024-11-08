@@ -1,0 +1,16 @@
+Open QjackCtl and go to "Setup". Select
+
+1. Driver: alsa
+1. Tick "Realtime"
+1. Sample Rate: 48000
+1. Frames/Period: 256 (my recommendation)
+1. Periods/Buffer: 4 (my recommendation)
+1. Select audio device as described below.
+
+If you use the same device for input and output, you can set it in the "Parameters" 🡲 "Interface".
+
+If you use one device for input and one for output (say, RealToneCable and internal soundcard for example), select them in the "Advanced" Tab, as "Output Device" and "Input Device". The number of channels below are usually selected automatically
+
+Quick note on Frames and Buffer size: More frames equals better quality audio. More Buffer equals more stability. Higher numbers equal higher latency. 256/4 is decent audio with decent delay and works for most people.
+
+Press apply, close setup and try to start JACK.

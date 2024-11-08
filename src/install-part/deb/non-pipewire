@@ -1,7 +1,0 @@
-Install the kxstudio repo according to these instructions: https://kx.studio/Repositories
-
-When asked about realtime privileges, select yes with the arrow keys and confirm with enter.
-
-```
-sudo apt update
-sudo apt install cadence carla wineasio jackd2
