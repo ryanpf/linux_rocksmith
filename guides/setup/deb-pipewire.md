@@ -42,8 +42,8 @@ Log out and back in. Or reboot, if that doesn't work.
 
 Set the Proton version you want to use. There's two ways to do this. In Steam
 
-* go to `Settings` 🡲 `Compatibility` 🡲 `Enable Steam play for all other titles`, then restart Steam.
-* open your library, right click Rocksmith and go to`Properties` 🡲 `Compatibility` and force one.
+* go to `Settings` ➞ `Compatibility` ➞ `Enable Steam play for all other titles`, then restart Steam.
+* open your library, right click Rocksmith and go to`Properties` ➞ `Compatibility` and force one.
 
 Delete or rename `$STEAMLIBRARY/steamapps/compatdata/221680`, then start Rocksmith and stop the game once it's running.
 
@@ -163,7 +163,7 @@ With Proton's runtime, we can't start Rocksmith directly from the Steam Library 
 
 </details>
 
-Go into your Steam Library and select "Add a game" 🡲 "Add a Non-Steam Game" on the bottom left.
+Go into your Steam Library and select "Add a game" ➞ "Add a Non-Steam Game" on the bottom left.
 
 Make sure you can see all files. Select the script we generated just now and add it. This will create a shortcut to the script, which I will refer to as "shortcut" from here on. For Proton versions 8 or lower, right click on the shortcut and select "Properties". Add these launch Options: `PIPEWIRE_LATENCY="256/48000" %command%`
 
