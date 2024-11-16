@@ -187,6 +187,8 @@ Steam and JACK need to be running.
 
 If we start the game from the button that says "Play" in Steam, the game can't connect to wineasio (you won't have sound and will get an error message). This is an issue with Steam and pipewire-jack. There are two ways to go about this. You can apply both at the same time, they don't break each other.
 
+
+
 <details><summary>1. LD_PRELOAD</summary>
 
 * Advantages: Run from Steam directly
@@ -220,6 +222,8 @@ Please select the Proton Version you use (Rocksmith has been working fine since 
 * [Proton 8 or lower](/guides/start-script/proton-8.md) (slightly easier)
 
 We can start the game via this script now: `path/to/rocksmith-launcher.sh`
+
+
 
 If you want the Steam overlay to work, you need to launch the script via Steam, see the next step.
 

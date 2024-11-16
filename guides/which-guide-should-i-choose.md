@@ -10,7 +10,9 @@ On Linux, there's multiple audio systems. alsa, pulseaudio, and JACK. JACK is me
 
 With native JACK, we would need to start JACK before launching the game. With pipewire-jack, we wouldn't have to do that, but it often acts strange and it can lead to the game crashing immediately. Finding the cause is usually harder.
 
-Bottom line what I think is: pipewire-jack integrates better, native JACK is more reliable. I'm probably going with native JACK
+Changing volume is another difference. With pipewire-jack, it will work. If you don't use pipewire, install pulseaudio-jack. With pipewire + native JACK, I don't know a way yet. The obvious workaround would be to use an audio device with a volume knob.
+
+Bottom line what I think is: pipewire-jack integrates better, native JACK is more reliable. I'm probably going with native JACK.
 
 ## LD_PRELOAD vs start script
 
@@ -72,3 +74,9 @@ Not impossible, but additional effort (and ability to write shell scripts) neede
 * Start script
 * edit start script, check if JACK is running and start it if not (you can get the command from the "Messages" window from QjackCtl)
 * maybe stop JACK after playing
+
+If you want to do something similar with pipewire-jack, you can do one optimization by adding this line to the start script:
+
+```
+pavucontrol & sleep 2
+```

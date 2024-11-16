@@ -69,6 +69,14 @@ for dist in arch deb deck fed; do
 		echo 11
 		sed -i "s/000-connect-sound-000/cat connect-sound\/${sound}/e" $filename
 		echo 12
+		if [ "$dist" = "deck" ]; then
+			sed -i "s/000-deck-note-000/cat deck-note/e" $filename
+		else
+			sed -i "s/000-deck-note-000//" $filename
+		fi
+		echo 13
+		sed -i "s/000-start-script-pipewire-note-000/cat start-script-pipewire-note\/${sound}/e" $filename
+		echo 14
 		sed -i "s/000-lutris-env-000/cat lutris-env\/${sound}/e" $filename
 
 		echo "replace inline"

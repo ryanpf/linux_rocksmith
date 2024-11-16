@@ -1,0 +1,1 @@
+[It has been reported](https://github.com/theNizo/linux_rocksmith/issues/63) that changing the volume crashes Rocksmith, due to a sound being played in KDE plasma. You can disable this by going to "System Settings" ➞ "Audio" ➞ "Configure Volume Controls" and untick "Play audio feedback for changes to".
