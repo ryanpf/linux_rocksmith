@@ -52,8 +52,8 @@ To make Proton use wineasio, we need to copy these files into the appropriate lo
 
 ```
 cp 000-lib32unix-000/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio32.dll.so"
-cp 000-lib64unix-000/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio64.dll.so"
 cp 000-lib32windows-000/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio32.dll"
+cp 000-lib64unix-000/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio64.dll.so"
 cp 000-lib64windows-000/wineasio64.dll "$PROTON/lib64/wine/x86_64-windows/wineasio64.dll"
 ```
 
