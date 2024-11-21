@@ -1,0 +1,6 @@
+**This guide will use the Steam package from "RPM Fusion nonfree". This is to avoid sandboxing being complicated for now.**
+
+An alternative way to do this via Flatpak is described [here](https://github.com/theNizo/linux_rocksmith/issues/31) Please note that the maintainer (theNizo) has no experience with Flatpak.
+
+```
+sudo dnf install -y gcc make glibc-devel.i686 wine wine-devel.i686 wine-devel.x86_64 jack-audio-connection-kit-devel.* realtime-setup pavucontrol qpwgraph qjackctl

@@ -14,10 +14,6 @@ for dist in arch deb deck fed; do
 	for sound in native pipewire; do
 		echo 0
 		echo "$dist; $sound" # print out, which file is worked on, so it's easier to debug.
-		if [ "$dist" = "fed" ] && [ "$sound" = "native" ]; then
-			echo "recognized fed-native loop, skipping."
-			continue
-		fi
 		filename=$path/$dist-$sound.md
 		cp base.md $filename # BASE SHOULD NEVER BE CHANGED BY THIS SCRIPT
 		echo 1
@@ -38,14 +34,12 @@ for dist in arch deb deck fed; do
 		if ! [ "$dist" = "deb" ]; then # if appliccable
 			echo 5
 			sed -i "s/000-wineasio-install-000/cat wineasio-install\/base/e" $filename # set base
-			if [ "$dist" = "fed" ]; then
-				echo "fedora wineasio install"
-				sed -i "s/000-base-devel-000//" $filename
-				echo 6
+			sed -i "s/000-base-devel-000/cat wineasio-install\/base-devel\/${dist}-${sound}/e" $filename
+			if [ "$dist" = "fed" ] && [ "$sound" = "pipewire" ]; then
+				echo "fedora pipewire wineasio install"
 				sed -i "s/000-fedora-makefile-000/cat wineasio-install\/fedora-makefile/e" $filename
 			else
-				echo "non-fedora wineasio install"
-				sed -i "s/000-base-devel-000/cat wineasio-install\/base-devel\/${dist}-${sound}/e" $filename
+				echo 6
 				sed -i "s/000-fedora-makefile-000//" $filename
 			fi
 			if [ "$dist" = "deck" ] && [ "$sound" = "pipewire" ]; then

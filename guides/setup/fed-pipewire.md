@@ -2,7 +2,7 @@
 
 And Nobara, probably
 
-~~Last tested on Fedora Workstation 41.~~ I can't register the wineasio.dll files, see [#40](https://github.com/theNizo/linux_rocksmith/issues/40). No one else complained yet, but I can't test this guide without it.
+Last tested on Fedora Workstation 41.
 
 ## Table of contents
 
@@ -76,10 +76,10 @@ The rest will be set up later.
 > sudo cp build32/wineasio32.dll.so /usr/lib/wine/i386-unix/wineasio32.dll.so
 > sudo cp build64/wineasio64.dll /usr/lib64/wine/x86_64-windows/wineasio64.dll
 > sudo cp build64/wineasio64.dll.so /usr/lib64/wine/x86_64-unix/wineasio64.dll.so
-> cp build32/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio.dll"
 > cp build32/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio.dll.so"
-> cp build64/wineasio64.dll "$PROTON/lib/wine/x86_64-windows/wineasio.dll"
-> cp build64/wineasio64.dll.so "$PROTON/lib/wine/x86_64-unix/wineasio.dll.so"
+> cp build32/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio.dll"
+> cp build64/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio.dll.so"
+> cp build64/wineasio64.dll "$PROTON/lib64/wine/x86_64-windows/wineasio.dll"
 > env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
 > ```
 >
@@ -149,8 +149,8 @@ To make Proton use wineasio, we need to copy these files into the appropriate lo
 
 ```
 cp /usr/lib/wine/i386-unix/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio32.dll.so"
-cp /usr/lib64/wine/x86_64-unix/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio64.dll.so"
 cp /usr/lib/wine/i386-windows/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio32.dll"
+cp /usr/lib64/wine/x86_64-unix/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio64.dll.so"
 cp /usr/lib64/wine/x86_64-windows/wineasio64.dll "$PROTON/lib64/wine/x86_64-windows/wineasio64.dll"
 ```
 
