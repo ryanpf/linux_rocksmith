@@ -1,4 +1,4 @@
-# pipewire-jack on Fedora Workstation
+# Native JACK on Fedora Workstation
 
 And Nobara, probably
 
@@ -191,8 +191,6 @@ If we start the game from the button that says "Play" in Steam, the game can't c
 
 
 <details><summary>1. LD_PRELOAD</summary>
-
-**!! This currently doesn't seem to work. Please use the other method !!**
 
 * Advantages: Run from Steam directly
 * Disadvantages: higher possibility of crashes, steps you might need to do every game-boot.
