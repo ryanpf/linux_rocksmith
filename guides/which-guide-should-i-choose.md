@@ -77,3 +77,12 @@ If you want to do something similar with pipewire-jack, you can do one optimizat
 ```
 pavucontrol & sleep 2
 ```
+
+### Can I have all ways at once
+
+[Short Answer](https://i.kym-cdn.com/entries/icons/original/000/028/596/dsmGaKWMeHXe9QuJtq_ys30PNfTGnMsRuHuo_MUzGCg.jpg)
+
+Long answer:
+
+* LD_PRELOAD and start-script can exist side by side on the same machine and switched easily.
+* As far as I can tell, the wineasio files are identical, no matter if you built them having pipewire-jack or native JACK installed, so in theory, you should be able to change between these two and just start the game.
