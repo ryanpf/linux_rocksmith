@@ -37,3 +37,7 @@ You can get verbose output of wineasio by using `/usr/bin/pw-jack -v -s 48000 -p
 
 * (Pipewire) If you use an audio interface, make sure the default sample rate is set to 48kHz. You can do this by running `pw-metadata -n settings 0 clock.rate 48000 && pw-metadata -n settings 0 clock.force-rate 48000`
 * (Multiplayer) Calibration once didn't work for me. But entering 2nd players profile, setting up the sound there, then going back to first player and start Multiplayer worked apparently...
+
+## Still doesn't help?
+
+You can [create an issue](https://github.com/theNizo/linux_rocksmith/issues/new?assignees=&labels=help+wanted&projects=&template=help-needed.md&title=) and ask for help.

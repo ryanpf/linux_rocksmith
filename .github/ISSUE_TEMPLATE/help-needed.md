@@ -10,7 +10,7 @@ assignees: ''
 * Which distro do you use?
 * Which Proton or wine version do you use?
 * Do you use pipewire?
-* did you choose native JACK or pipewire-jack?
+* did you choose the native JACK or pipewire-jack guide?
 * What appears to be the problem? (Describe it as best as you can)
 * Did you notice any other unexpected behavior?
 * What did you try already?

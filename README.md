@@ -123,6 +123,9 @@ These are outated. I'll leave the content here just in case.
 * [Siarkowy](https://github.com/Siarkowy) for replacing the "JustInCaseWeNeedIt" workaround and the shortcut in Steam.
 * [TimP4w](https://github.com/TimP4w) for the NixOS guide.
 
-Thank you all for the work ^^
+A big thank you to the people working on [wineASIO](https://github.com/wineasio/wineasio) and [RS_ASIO](https://github.com/mdias/rs_asio)
 
-Also a big thank you to the people working on [wineASIO](https://github.com/wineasio/wineasio) and [RS_ASIO](https://github.com/mdias/rs_asio)
+Also thanks to all the people who helped me figure out solutions.
+
+Issues help me see what people misunderstand and I often learn a little bit more by approaching the setup in different ways, so thank you too.
+

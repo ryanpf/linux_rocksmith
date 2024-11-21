@@ -10,8 +10,6 @@ On Linux, there's multiple audio systems. alsa, pulseaudio, and JACK. JACK is me
 
 With native JACK, we would need to start JACK before launching the game. With pipewire-jack, we wouldn't have to do that, but it often acts strange and it can lead to the game crashing immediately. Finding the cause is usually harder.
 
-Changing volume is another difference. With pipewire-jack, it will work. If you don't use pipewire, install pulseaudio-jack. With pipewire + native JACK, I don't know a way yet. The obvious workaround would be to use an audio device with a volume knob.
-
 Bottom line what I think is: pipewire-jack integrates better, native JACK is more reliable. I'm probably going with native JACK.
 
 ## LD_PRELOAD vs start script
@@ -60,9 +58,8 @@ If you don't, I recommend pipewire-jack.
 
 ### "I don't want my device to be exclusive."
 
-pipewire-jack.
-
-(Maybe it's possible with native JACK using [`pipewire-jack-client`](https://wiki.archlinux.org/title/PipeWire#Run_PipeWire_on_top_of_native_JACK), but I couldn't figure that out yet.)
+* **pipewire-jack:** works just fine.
+* **pipewire + native JACK:** On Arch-based, install `pipewire-jack-client`. For Debian, [this](https://wiki.debian.org/PipeWire#JACK) should be something similar. I haven't found anything for Fedora yet. Start JACK, then run `systemctl --user restart pipewire-pulse.service`. For the neccesary connections to be there from the start, you'd probably have to start JACK on boot.
 
 ### "I just want to click one button and expect the thing to work pretty much all the time."
 
