@@ -2,6 +2,12 @@
 
 If some commands don't work, make sure you've set the environment variables as described [here](/README.md#common-paths)
 
+## "I see the following window when starting the game"
+
+![](https://user-images.githubusercontent.com/46491912/161832608-b333a1ae-80f7-4f0b-82d0-d7e87b9f4e9f.png)
+
+Follow [this](/guides/troubleshoot-no-sound.md) to figure out what your problem is.
+
 ## Game crashes (on start)
 
 Can happen sometimes when you use a different application, then focus Rocksmith again. Other than that:
