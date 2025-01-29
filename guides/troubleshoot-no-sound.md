@@ -16,11 +16,11 @@ TEST IN THE GIVEN ORDER.
 ```
 ## replace paths as needed.
 rm ~/wineasio-test
-env WINEPREFIX=home/$USER/wineasio-test /path/to/wineasio-register
+env WINEPREFIX=/home/$USER/wineasio-test /path/to/wineasio-register
 
 ## if the first one doesn't work, try the second one.
 ## (Rocksmith is a 32 bit application and therefore only cares about 32 bit.)
-WINEPREFIX=home/$USER/wineasio-test wine /path/to/VBASIOTest32.exe
+WINEPREFIX=/home/$USER/wineasio-test wine /path/to/VBASIOTest32.exe
 LD_PRELOAD=/your/path/to/libjack.so   WINEPREFIX=home/$USER/wineasio-test wine /path/to/VBASIOTest32.exe
 ```
 
