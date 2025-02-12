@@ -1,4 +1,4 @@
-# Native JACK on Steam Deck
+# Native JACK on SteamOS
 
 (Based on [BWagener](https://github.com/BWagener)'s original version)
 
