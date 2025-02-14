@@ -139,6 +139,8 @@ To register wineasio (so that it can be used in the prefix), run the `wineasio-r
 env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
 ```
 
+Errors outputted by this command are expected. The important one is the message at the end saying "regsvr32: Successfully registered DLL ..." or "regsvr32: Failed to register ...".
+
 <details><summary> How to check if this worked correctly</summary>
 
 > Download this: [VBAsioTest_1013.zip](https://download.vb-audio.com/Download_MT128/VBAsioTest_1013.zip)
@@ -148,7 +150,7 @@ env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
 > ```
 > WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx $PROTON/bin/wine /path/to/VBASIOTest32.exe
 > ```
-> !! The command above currently might not work. You can try instead: `LD_PRELOAD=/usr/lib//libjack.so wine /path/to/VBASIOTest32.exe` !!
+> !! The command above currently might not work. You can try instead: `LD_PRELOAD=/usr/lib/libjack.so wine /path/to/VBASIOTest32.exe` !!
 >
 </details>
 
@@ -197,7 +199,7 @@ If we start the game from the button that says "Play" in Steam, the game can't c
 
 Add these launch options to Rocksmith:
 ```
-LD_PRELOAD=/usr/lib//libjack.so %command%
+LD_PRELOAD=/usr/lib/libjack.so %command%
 ```
 
 You can launch the game from Steam now. For the first few boot-ups, you have to remove window focus from Rocksmith (typically done with Alt+Tab) as soon as the window shows up. If it doesn't crash, continue with instructions.

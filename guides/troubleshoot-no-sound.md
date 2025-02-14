@@ -24,7 +24,7 @@ WINEPREFIX=/home/$USER/wineasio-test wine /path/to/VBASIOTest32.exe
 LD_PRELOAD=/your/path/to/libjack.so   WINEPREFIX=home/$USER/wineasio-test wine /path/to/VBASIOTest32.exe
 ```
 
-5. Assuming you have set up the game, start it with the following command: `PIPEWIRE_LATENCY=256/48000 WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx $PROTON/bin/wine $STEAMLIBRARY/steamapps/common/Rocksmith2014/Rocksmith2014.exe`
+5. Assuming you have set up the game, start it with the following command: `PIPEWIRE_LATENCY=256/48000 WINEPREFIX="$STEAMLIBRARY/steamapps/compatdata/221680/pfx" "$PROTON/bin/wine" "$STEAMLIBRARY/steamapps/common/Rocksmith2014/Rocksmith2014.exe"`
 6. Start the game according to the section "Starting the game" which can be found in the guide. - Sometimes, only one of the 2 ways suggested works.
 
 ## Explanation

@@ -50,19 +50,22 @@ PROTON=$HOME/.steam/steam/steamapps/common/Proton 7.0/dist/
 > Totally fine for our usecase. Insert your paths and run these lines like commands. Keep in mind that these are only temporary. It only applies to the terminal instance you set it in. If you were to open a new terminal window, you'd have to enter them again to be able to use them.
 >
 > ```
-> STEAMLIBRARY=<path>
-> PROTON=<path>
+> STEAMLIBRARY="<path without backslashes>"
+> PROTON="<path without backslashes>"
 > ```
+> 
+> There are quotes around the paths to accomodate for potential spaces.
 >
 > #### Permanent:
 >
 > Add these lines to `~/.profile`. You will need to log out and back in after adding them.
 >
 > ```
-> export STEAMLIBRARY=<path>
-> export PROTON=<path>
+> export STEAMLIBRARY="<path without backslashes>"
+> export PROTON="<path without backslashes>"
 > ```
-
+>
+> There are quotes around the paths to accomodate for potential spaces.
 </details>
 
 

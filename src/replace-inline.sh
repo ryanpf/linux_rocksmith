@@ -53,7 +53,7 @@ case $1 in
 		if [ "$2" = "pipewire" ]; then
 			sed -i "s/000-libjack-path-000/\/usr\/lib\/pipewire-0.3\/jack/" $3
 		else
-			sed -i "s/000-libjack-path-000/\/usr\/lib\//" $3
+			sed -i "s/000-libjack-path-000/\/usr\/lib/" $3
 		fi
 		sed -i "s/000-list-inst-000/dnf list installed/" $3
 		sed -i "s/000-wineasio-register-000/.\/wineasio-register/" $3

@@ -25,6 +25,7 @@ You can now remove the launch options.
 You have now exported everything you need to build a launch script. Enter a terminal, cd into the directory where you placed `launch` and `vars` in the last step. Run these commands:
 
 ```
+# again, make sure you've set $STEAMLIBRARY. You will need it here one last time.
 sed -i 's/ /\n/g' vars
 rm rocksmith-launcher.sh
 echo '#!/bin/bash' >> rocksmith-launcher.sh

@@ -135,6 +135,8 @@ To register wineasio (so that it can be used in the prefix), run the `wineasio-r
 env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
 ```
 
+Errors outputted by this command are expected. The important one is the message at the end saying "regsvr32: Successfully registered DLL ..." or "regsvr32: Failed to register ...".
+
 <details><summary> How to check if this worked correctly</summary>
 
 > Download this: [VBAsioTest_1013.zip](https://download.vb-audio.com/Download_MT128/VBAsioTest_1013.zip)
