@@ -35,8 +35,9 @@ Some paths that we need differ from system to system. I use environment variable
 Example for default paths and Proton 7:
 
 ```
-STEAMLIBRARY=$HOME/.steam/steam/
-PROTON=$HOME/.steam/steam/steamapps/common/Proton 7.0/dist/
+# With quotes, without backslashes, to ensure compatibility with the commands listed in the guides.
+STEAMLIBRARY="$HOME/.steam/steam/"
+PROTON="$HOME/.steam/steam/steamapps/common/Proton 7.0/dist/"
 ```
 
 <details><summary>How to set environment variables</summary>
@@ -53,8 +54,6 @@ PROTON=$HOME/.steam/steam/steamapps/common/Proton 7.0/dist/
 > STEAMLIBRARY="<path without backslashes>"
 > PROTON="<path without backslashes>"
 > ```
-> 
-> There are quotes around the paths to accomodate for potential spaces.
 >
 > #### Permanent:
 >
@@ -64,8 +63,6 @@ PROTON=$HOME/.steam/steam/steamapps/common/Proton 7.0/dist/
 > export STEAMLIBRARY="<path without backslashes>"
 > export PROTON="<path without backslashes>"
 > ```
->
-> There are quotes around the paths to accomodate for potential spaces.
 </details>
 
 
