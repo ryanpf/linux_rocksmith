@@ -79,6 +79,7 @@ Then there's the way of routing the audio through JACK 🡲 wineASIO 🡲 RS_ASI
 
 [Need help deciding? You can read this.](/guides/which-guide-should-i-choose.md)
 
+**These guides currently have a problem with wine versions 10.2 or higher. For a workaround, downgrade wine. Last working version is 10.1
 || pipewire-jack | native JACK |
 |---|---|---|
 | Arch | [Guide](guides/setup/arch-pipewire.md) | [Guide](guides/setup/arch-native.md) |
