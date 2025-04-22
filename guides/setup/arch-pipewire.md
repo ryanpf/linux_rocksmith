@@ -153,7 +153,7 @@ Errors outputted by this command are expected. The important one is the message 
 ## Installing RS_ASIO
 
 1. [Download](https://github.com/mdias/rs_asio/releases) the newest release, unpack everything to the root of your Rocksmith installation (`$STEAMLIBRARY/steamapps/common/Rocksmith2014/`)
-1. Edit RS_ASIO.ini: fill in `wineasio-rsasio` where it says `Driver=`. Do this for every Output and Input section.
+1. Edit RS_ASIO.ini: fill in `wineasio-rsasio` where it says `Driver=`. Do this for every Output and Input section. You could also fill in `WineASIO` instead.
 
 And you're done with RS_ASIO. But in case you want to configure the inputs further (relevant for multiplayer), see [this](/guides/setup-rs-asio.md).
 
