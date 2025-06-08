@@ -145,6 +145,7 @@ env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
 
 # DOES WORK CURRENTLY
 cp /usr/lib/wine/i386-windows/wineasio32.dll "$STEAMLIBRARY/steamapps/compatdata/221680/pfx/drive_c/windows/syswow64/wineasio32.dll"
+cp /usr/lib/wine/i386-unix/wineasio32.dll.so "$STEAMLIBRARY/steamapps/compatdata/221680/pfx/drive_c/windows/syswow64/wineasio32.dll.so"
 ```
 
 Errors outputted by this command are expected. The important one is the message at the end saying "regsvr32: Successfully registered DLL ..." or "regsvr32: Failed to register ...".
