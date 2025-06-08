@@ -66,7 +66,7 @@ In theory, this should also work with Lutris runners (located in `$HOME/.local/s
 env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx 000-wineasio-register-000
 
 # DOES WORK CURRENTLY
-cp 000-lib32windows-000/wineasio32.dll "$STEAMLIBRARY/steamapps/compatdata/221680/pfx/drive_c/windows/syswow64/wineasio32.dll
+cp 000-lib32windows-000/wineasio32.dll "$STEAMLIBRARY/steamapps/compatdata/221680/pfx/drive_c/windows/syswow64/wineasio32.dll"
 ```
 
 Errors outputted by this command are expected. The important one is the message at the end saying "regsvr32: Successfully registered DLL ..." or "regsvr32: Failed to register ...".
