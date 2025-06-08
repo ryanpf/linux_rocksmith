@@ -15,9 +15,9 @@ case $1 in
 		#echo p1
 		sed -i "s/000-lib64windows-000/\/usr\/lib\/wine\/x86_64-windows/" $3
 		#echo p2
-		sed -i "s/000-lib32unix-000/\/usr\/lib32\/wine\/i386-unix/" $3
+		sed -i "s/000-lib32unix-000/\/usr\/lib\/wine\/i386-unix/" $3
 		#echo p3
-		sed -i "s/000-lib32windows-000/\/usr\/lib32\/wine\/i386-windows/" $3
+		sed -i "s/000-lib32windows-000/\/usr\/lib\/wine\/i386-windows/" $3
 		sed -i "s/000-lib32-000/lib32/" $3
 		sed -i "s/000-lib64-000/lib/" $3
 		sed -i "s/000-libjack-path-000/\/usr\/lib32/" $3
@@ -45,9 +45,9 @@ case $1 in
 		#echo p1
 		sed -i "s/000-lib64windows-000/\/usr\/lib64\/wine\/x86_64-windows/" $3
 		#echo p2
-		sed -i "s/000-lib32unix-000/\/usr\/lib\/wine\/i386-unix/" $3
+		sed -i "s/000-lib32unix-000/\/usr\/lib64\/wine\/i386-unix/" $3
 		#echo p3
-		sed -i "s/000-lib32windows-000/\/usr\/lib\/wine\/i386-windows/" $3
+		sed -i "s/000-lib32windows-000/\/usr\/lib64\/wine\/i386-windows/" $3
 		sed -i "s/000-lib32-000/lib/" $3
 		sed -i "s/000-lib64-000/lib64/" $3
 		if [ "$2" = "pipewire" ]; then

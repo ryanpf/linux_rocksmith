@@ -74,8 +74,8 @@ The rest will be set up later.
 > rm -rf build64
 > make 32
 > make 64
-> sudo cp build32/wineasio32.dll /usr/lib/wine/i386-windows/wineasio32.dll
-> sudo cp build32/wineasio32.dll.so /usr/lib/wine/i386-unix/wineasio32.dll.so
+> sudo cp build32/wineasio32.dll /usr/lib64/wine/i386-windows/wineasio32.dll
+> sudo cp build32/wineasio32.dll.so /usr/lib64/wine/i386-unix/wineasio32.dll.so
 > sudo cp build64/wineasio64.dll /usr/lib64/wine/x86_64-windows/wineasio64.dll
 > sudo cp build64/wineasio64.dll.so /usr/lib64/wine/x86_64-unix/wineasio64.dll.so
 > cp build32/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio.dll.so"
@@ -122,8 +122,8 @@ make 32
 make 64
 
 # Install on normal wine
-sudo cp build32/wineasio32.dll /usr/lib/wine/i386-windows/wineasio32.dll
-sudo cp build32/wineasio32.dll.so /usr/lib/wine/i386-unix/wineasio32.dll.so
+sudo cp build32/wineasio32.dll /usr/lib64/wine/i386-windows/wineasio32.dll
+sudo cp build32/wineasio32.dll.so /usr/lib64/wine/i386-unix/wineasio32.dll.so
 sudo cp build64/wineasio64.dll /usr/lib64/wine/x86_64-windows/wineasio64.dll
 sudo cp build64/wineasio64.dll.so /usr/lib64/wine/x86_64-unix/wineasio64.dll.so
 ```
@@ -150,18 +150,22 @@ To make Proton use wineasio, we need to copy these files into the appropriate lo
 **STOP!** If you haven't set the environment variables yet, please follow [this part](/README.md#common-paths) of the prerequisites, then continue.
 
 ```
-cp /usr/lib/wine/i386-unix/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio32.dll.so"
-cp /usr/lib/wine/i386-windows/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio32.dll"
+cp /usr/lib64/wine/i386-unix/wineasio32.dll.so "$PROTON/lib/wine/i386-unix/wineasio32.dll.so"
+cp /usr/lib64/wine/i386-windows/wineasio32.dll "$PROTON/lib/wine/i386-windows/wineasio32.dll"
 cp /usr/lib64/wine/x86_64-unix/wineasio64.dll.so "$PROTON/lib64/wine/x86_64-unix/wineasio64.dll.so"
 cp /usr/lib64/wine/x86_64-windows/wineasio64.dll "$PROTON/lib64/wine/x86_64-windows/wineasio64.dll"
 ```
 
 In theory, this should also work with Lutris runners (located in `$HOME/.local/share/lutris/runners/wine/`)
 
-To register wineasio (so that it can be used in the prefix), run the `wineasio-register` script that comes in the wineasio zip and set the `WINEPREFIX` to Rocksmiths.
+~~To register wineasio (so that it can be used in the prefix), run the `wineasio-register` script that comes in the wineasio zip and set the `WINEPREFIX` to Rocksmiths.~~ Properly registering doesn't work at the moment. As a workaround, we can run the command below
 
 ```
+# DOES NOT WORK
 env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx ./wineasio-register
+
+# DOES WORK CURRENTLY
+cp /usr/lib64/wine/i386-windows/wineasio32.dll "$STEAMLIBRARY/steamapps/compatdata/221680/pfx/drive_c/windows/syswow64/wineasio32.dll
 ```
 
 Errors outputted by this command are expected. The important one is the message at the end saying "regsvr32: Successfully registered DLL ..." or "regsvr32: Failed to register ...".
