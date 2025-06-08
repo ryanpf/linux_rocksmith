@@ -59,15 +59,10 @@ cp 000-lib64windows-000/wineasio64.dll "$PROTON/lib64/wine/x86_64-windows/wineas
 
 In theory, this should also work with Lutris runners (located in `$HOME/.local/share/lutris/runners/wine/`)
 
-~~To register wineasio (so that it can be used in the prefix), run the `wineasio-register` script that comes in the wineasio zip and set the `WINEPREFIX` to Rocksmiths.~~ Properly registering doesn't work at the moment. As a workaround, we can run the command below
+To register wineasio (so that it can be used in the prefix), run the `wineasio-register` script that comes in the wineasio zip and set the `WINEPREFIX` to Rocksmiths.
 
 ```
-# DOES NOT WORK
 env WINEPREFIX=$STEAMLIBRARY/steamapps/compatdata/221680/pfx 000-wineasio-register-000
-
-# DOES WORK CURRENTLY
-cp 000-lib32windows-000/wineasio32.dll "$STEAMLIBRARY/steamapps/compatdata/221680/pfx/drive_c/windows/syswow64/wineasio32.dll"
-cp 000-lib32unix-000/wineasio32.dll.so "$STEAMLIBRARY/steamapps/compatdata/221680/pfx/drive_c/windows/syswow64/wineasio32.dll.so"
 ```
 
 Errors outputted by this command are expected. The important one is the message at the end saying "regsvr32: Successfully registered DLL ..." or "regsvr32: Failed to register ...".
