@@ -7,6 +7,7 @@ USER=$(whoami)
 
 # Constants (these shouldn't change!)
 WINEASIOPATH="/lib/wine" 
+WINEASIO32PATH="/lib32/wine" 
 WINEASIODLLS=(
     "/i386-unix/wineasio32.dll.so" 
     "/i386-windows/wineasio32.dll" 
@@ -15,10 +16,10 @@ WINEASIODLLS=(
 )
 STEAMPATH="/home/${USER}/.steam/steam"
 WINEPREFIX="${STEAMPATH}/steamapps/compatdata/221680/pfx/"
-LAUNCH_OPTIONS="LD_PRELOAD=/lib/libjack.so PIPEWIRE_LATENCY=256/48000 %command%"
+LAUNCH_OPTIONS="LD_PRELOAD=/lib32/libjack.so PIPEWIRE_LATENCY=256/48000 %command%"
 
 # Defaults
-RSASIOVER="0.7.1"
+RSASIOVER="0.7.4"
 PROTONVER="Proton - Experimental" 
 FILES_OR_DIST="files"
 PROTONPATH="${STEAMPATH}/steamapps/common/${PROTONVER}"
@@ -150,6 +151,7 @@ check_and_prepare() {
     CHECKPATHS=(
         "$WINEPREFIX"
         "$WINEASIOPATH"
+        "$WINEASIO32PATH"
         "$STEAMPATH"
         "$PROTONPATH"
         "/lib/wine"
@@ -194,10 +196,9 @@ check_and_prepare() {
     done
 
     for dll in "${WINEASIODLLS[@]}"; do
-        if [ ! -f "${WINEASIOPATH}${dll}" ]; then
+        if [ ! -f "${WINEASIOPATH}${dll}" ] && [ ! -f "${WINEASIO32PATH}${dll}" ]; then
             echo "File ${dll} ... $(print_red NOT found!)"
             check_passed=false
-
         else 
             echo "File ${dll} ... $(print_green OK)"
         fi
@@ -233,10 +234,18 @@ safe_copy() {
 
 patch_wineasio_32bit() {
     echo "[Wineasio] Applying Patch for 32-bit"
-    safe_copy "${WINEASIOPATH}${1}" "${PROTONPATH}/${FILES_OR_DIST}/lib/wine${1}"
+    if [ -e "${WINEASIOPATH}${1}" ]; then
+        safe_copy "${WINEASIOPATH}${1}" "${PROTONPATH}/${FILES_OR_DIST}/lib/wine${1}"
+    elif [ -e "${WINEASIO32PATH}${1}" ]; then
+        safe_copy "${WINEASIO32PATH}${1}" "${PROTONPATH}/${FILES_OR_DIST}/lib/wine${1}"
+    fi
     if [[ $1 == *.so ]]; then
         local wineasio_dll=$(echo ${WINEASIOPATH}${1} | sed -e 's|/i386-unix/wineasio32.dll.so|/i386-windows/wineasio32.dll|g')
         if [ -e "${WINEASIOPATH}${1}" ] && [ -e "${wineasio_dll}" ]; then
+            echo "[Wineasio 32-bit] Copying ${wineasio_dll} in ${WINEPREFIX}/drive_c/windows/syswow64/wineasio32.dll"
+            safe_copy "${wineasio_dll}" "${WINEPREFIX}/drive_c/windows/syswow64/wineasio32.dll"
+            register_dll "$wineasio_dll" "$WINE"
+        elif [ -e "${WINEASIO32PATH}${1}" ] && [ -e "${wineasio_dll}" ]; then
             echo "[Wineasio 32-bit] Copying ${wineasio_dll} in ${WINEPREFIX}/drive_c/windows/syswow64/wineasio32.dll"
             safe_copy "${wineasio_dll}" "${WINEPREFIX}/drive_c/windows/syswow64/wineasio32.dll"
             register_dll "$wineasio_dll" "$WINE"
@@ -247,7 +256,11 @@ patch_wineasio_32bit() {
 patch_wineasio_64bit() {
     echo "[Wineasio] Applying Patch for 64-bit"
 
-    safe_copy "${WINEASIOPATH}${1}" "${PROTONPATH}/${FILES_OR_DIST}/lib64/wine${1}"
+    if [ -e "${PROTONPATH}/${FILES_OR_DIST}/lib64/" ]; then
+        safe_copy "${WINEASIOPATH}${1}" "${PROTONPATH}/${FILES_OR_DIST}/lib64/wine${1}"
+    elif [ -e "${PROTONPATH}/${FILES_OR_DIST}/lib/" ]; then
+        safe_copy "${WINEASIOPATH}${1}" "${PROTONPATH}/${FILES_OR_DIST}/lib/wine${1}"
+    fi
 
     if [[ $1 == *.so ]]; then
         if [ ! -d "${WINEPREFIX}/drive_c/windows/syswow64" ]; then

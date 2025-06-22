@@ -29,7 +29,7 @@ First it will ask you if you want to override its default values, you can press 
 
 - Proton Version: the proton version you have installed. By default it assumes `Proton - Experimental`. You can select another version by writing the corresponding number and pressing enter.
 
-- RS_ASIO: The RS_ASIO you want to install. Currently it downloads the version `0.7.1`.
+- RS_ASIO: The RS_ASIO you want to install. Currently it downloads the version `0.7.4`.
 
 Reboot your PC after the script finishes.
 

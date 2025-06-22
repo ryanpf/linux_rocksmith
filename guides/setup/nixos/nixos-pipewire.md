@@ -20,11 +20,11 @@ Thanks to [TimP4w](https://github.com/TimP4w) for writing this.
 
 # Tested and working with
 ```
-NixOS 24.05.20240524.d12251e (Uakari) [64-bit]
+NixOS 25.05.804113.6c64dabd3aa8 (Warbler) [64-bit]
 Wineasio: wineasio-1.2.0
-Pipewire Jack: pipewire-1.0.6-jack
-RS_ASIO: 0.7.1
-Proton: Proton - Experimental, Proton 9.0 (Beta) and Proton 8.0
+Pipewire Jack: pipewire-1.4.2-jack
+RS_ASIO 0.7.4
+Proton: Proton - Experimental
 ```
 
 # NixOS Configuration
@@ -68,7 +68,9 @@ After applying the configuration, reboot your PC.
   users.users.<username>.extraGroups = [ "audio" "rtkit" ];
 
   environment.systemPackages = with pkgs; [
-    qjackctl
+    qpwgraph # Lets you view pipewire graph and connect IOs
+    pavucontrol # Lets you disable inputs/outputs, can help if game auto-connects to bad IOs
+    unzip # Used by patch-nixos.sh
     rtaudio 
   ];
 
